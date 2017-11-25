@@ -1,6 +1,7 @@
 ﻿using ES.BLL.Interfaces;
 using ES.BLL.Metodos;
 using System;
+using System.Diagnostics;
 using System.Web.Security;
 
 namespace ES.UI

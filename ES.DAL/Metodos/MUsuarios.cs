@@ -15,11 +15,11 @@ namespace ES.DAL.Metodos
     {
         private OrmLiteConnectionFactory _conexion;
         private IDbConnection _db;
-        private IHerramientas _herramientas;
+        private IHerramientas _herra;
 
         public MUsuarios()
         {
-            _herramientas = new MHerramientas();
+            _herra = new MHerramientas();
             _conexion = new OrmLiteConnectionFactory(BD.Default.conexion, SqlServerDialect.Provider);
             _db = _conexion.Open();
         }
@@ -29,7 +29,7 @@ namespace ES.DAL.Metodos
             var res = false;
             try
             {
-                if (_db.Select<Usuarios>(x => x.USUARIO == Usuario).Count() == 1)
+                if (_db.Select<TB_Usuarios>(x => x.USUARIO == Usuario).Count() == 1)
                 {
                     res = true;
                 }
@@ -46,7 +46,7 @@ namespace ES.DAL.Metodos
             var res = false;
             try
             {
-                if (_db.Select<Usuarios>(x => x.USUARIO == Usuario && x.PASS == Password).Count() == 1)
+                if (_db.Select<TB_Usuarios>(x => x.USUARIO == Usuario && x.PASS == Password).Count() == 1)
                 {
                     res = true;
                 }
@@ -61,11 +61,11 @@ namespace ES.DAL.Metodos
         public bool CuentaBloqueada(string Usuario)
         {
             var estado = true;
-            Usuarios[] res = { };
+            TB_Usuarios[] res = { };
 
             try
             {
-                res = _db.Select<Usuarios>(x => x.USUARIO == Usuario).ToArray();
+                res = _db.Select<TB_Usuarios>(x => x.USUARIO == Usuario).ToArray();
                 estado = res[0].CUENTA_BLOQUEADA;
             }
             catch (Exception ex)
@@ -78,11 +78,11 @@ namespace ES.DAL.Metodos
         public bool CuentaDesactivada(string Usuario)
         {
             var estado = true;
-            Usuarios[] res = { };
+            TB_Usuarios[] res = { };
 
             try
             {
-                res = _db.Select<Usuarios>(x => x.USUARIO == Usuario).ToArray();
+                res = _db.Select<TB_Usuarios>(x => x.USUARIO == Usuario).ToArray();
                 estado = res[0].CUENTA_DESACTIVADA;
             }
             catch (Exception ex)
@@ -120,12 +120,12 @@ namespace ES.DAL.Metodos
 
         public int ObtenerIntentosFallidos(string Usuario)
         {
-            Usuarios[] res = { };
+            TB_Usuarios[] res = { };
             var intentos = 0;
 
             try
             {
-                res = _db.Select<Usuarios>(x => x.USUARIO == Usuario).ToArray();
+                res = _db.Select<TB_Usuarios>(x => x.USUARIO == Usuario).ToArray();
                 intentos = res[0].INTENTOS_FALLIDOS;
             }
             catch (Exception ex)
@@ -153,7 +153,7 @@ namespace ES.DAL.Metodos
             var res = false;
             try
             {
-                if (_db.Select<Usuarios>(x => x.USUARIO == Usuario).Count() == 1)
+                if (_db.Select<TB_Usuarios>(x => x.USUARIO == Usuario).Count() == 1)
                 {
                     res = true;
                 }
@@ -167,12 +167,12 @@ namespace ES.DAL.Metodos
 
         public string ObtenerEmail(string Usuario)
         {
-            Usuarios[] res = { };
+            TB_Usuarios[] res = { };
             var email = string.Empty;
 
             try
             {
-                res = _db.Select<Usuarios>(x => x.USUARIO == Usuario).ToArray();
+                res = _db.Select<TB_Usuarios>(x => x.USUARIO == Usuario).ToArray();
                 email = res[0].EMAIL;
             }
             catch (Exception ex)
@@ -220,7 +220,7 @@ namespace ES.DAL.Metodos
 
             try
             {
-                var SQL = string.Format("UPDATE TB_USUARIOS SET CODIGO = '{0}' WHERE USUARIO = '{1}'", _herramientas.Encrypt(NuevoCodSecreto), Usuario);
+                var SQL = string.Format("UPDATE TB_USUARIOS SET CODIGO = '{0}' WHERE USUARIO = '{1}'", _herra.Encrypt(NuevoCodSecreto), Usuario);
                 _db.ExecuteSql(SQL);
             }
             catch (Exception ex)
@@ -250,7 +250,7 @@ namespace ES.DAL.Metodos
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("\nError \nUbicación: Capa DAL -> MUsuarios -> CrearPassword(). \nDescripción: " + ex.Message);
+                Debug.WriteLine("\nError \nUbicación: Capa DAL -> MUsuarios -> CrearCodigo(). \nDescripción: " + ex.Message);
             }
             return res;
         }
@@ -261,7 +261,7 @@ namespace ES.DAL.Metodos
 
             try
             {
-                if (_db.Select<Usuarios>(x => x.USUARIO == Usuario && x.CODIGO == SecretCode).Count() == 1)
+                if (_db.Select<TB_Usuarios>(x => x.USUARIO == Usuario && x.CODIGO == SecretCode).Count() == 1)
                 {
                     res = true;
                 }
@@ -279,7 +279,7 @@ namespace ES.DAL.Metodos
 
             try
             {
-                var SQL = string.Format("UPDATE TB_USUARIOS SET CODIGO = '{0}' WHERE USUARIO = '{1}'", _herramientas.Encrypt(reset), Usuario);
+                var SQL = string.Format("UPDATE TB_USUARIOS SET CODIGO = '{0}' WHERE USUARIO = '{1}'", _herra.Encrypt(reset), Usuario);
                 _db.ExecuteSql(SQL);
             }
             catch (Exception ex)
@@ -315,13 +315,13 @@ namespace ES.DAL.Metodos
         }
         
         // METODO DE EJEMPLO
-        public Usuarios[] ObtenerInfo(string Usuario)
+        public TB_Usuarios[] ObtenerInfo(string Usuario)
         {
-            Usuarios[] res = { };
+            TB_Usuarios[] res = { };
 
             try
             {
-                res = _db.Select<Usuarios>(x => x.USUARIO == Usuario).ToArray();
+                res = _db.Select<TB_Usuarios>(x => x.USUARIO == Usuario).ToArray();
             }
             catch (Exception ex)
             {
@@ -330,13 +330,13 @@ namespace ES.DAL.Metodos
             return res;
         }
 
-        public Roles[] ObtenerRoles()
+        public TB_Roles[] ObtenerRoles()
         {
-            Roles[] res = { };
+            TB_Roles[] res = { };
 
             try
             {
-                res = _db.Select<Roles>().ToArray();
+                res = _db.Select<TB_Roles>().ToArray();
             }
             catch (Exception ex)
             {
@@ -345,13 +345,13 @@ namespace ES.DAL.Metodos
             return res;
         }
 
-        public Usuarios[] ObtenerInfoGeneral()
+        public TB_Usuarios[] ObtenerInfoGeneral()
         {
-            Usuarios[] res = { };
+            TB_Usuarios[] res = { };
 
             try
             {
-                res = _db.Select<Usuarios>().ToArray();
+                res = _db.Select<TB_Usuarios>().ToArray();
             }
             catch (Exception ex)
             {
@@ -365,7 +365,7 @@ namespace ES.DAL.Metodos
             var res = 0;
             try
             {
-                res = _db.Select<Usuarios>().Count();
+                res = _db.Select<TB_Usuarios>().Count();
             }
             catch (Exception ex)
             {
@@ -376,12 +376,12 @@ namespace ES.DAL.Metodos
 
         public string ObtenerRol(int ID_ROL)
         {
-            Roles[] res = { };
+            TB_Roles[] res = { };
             var rol = string.Empty;
 
             try
             {
-                res = _db.Select<Roles>(x => x.ID_ROL == ID_ROL).ToArray();
+                res = _db.Select<TB_Roles>(x => x.ID_ROL == ID_ROL).ToArray();
                 rol = res[0].NOMBRE;
             }
             catch (Exception ex)
@@ -391,15 +391,18 @@ namespace ES.DAL.Metodos
             return rol;
         }
 
-        public void CrearUsuario(Usuarios usuario)
+        public void ActualizarPerfil(TB_Usuarios UpdateProfile)
         {
+            var NuevoCodSecreto = CrearCodigo();
+
             try
             {
-                _db.Insert(usuario);
+                var SQL = string.Format("UPDATE TB_Usuarios SET NOMBRE = '{0}', APELLIDOS = '{1}', TELEFONO = '{2}', EMAIL = '{3}', CEDULA = '{4}', FRASE = '{5}' WHERE USUARIO = '{6}'", UpdateProfile.NOMBRE, UpdateProfile.APELLIDOS, UpdateProfile.TELEFONO, UpdateProfile.EMAIL, UpdateProfile.CEDULA, UpdateProfile.FRASE, UpdateProfile.USUARIO);
+                _db.ExecuteSql(SQL);
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("\nError \nUbicación: Capa DAL -> MUsuario -> ActualizarPassword(). \nDescripción: " + ex.Message);
+                Debug.WriteLine("\nError \nUbicación: Capa DAL -> MUsuarios -> ActualizarPerfil(). \nDescripción: " + ex.Message);
             }
         }
     }

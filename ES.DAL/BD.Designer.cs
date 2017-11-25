@@ -12,7 +12,7 @@ namespace ES.DAL {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.3.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
     internal sealed partial class BD : global::System.Configuration.ApplicationSettingsBase {
         
         private static BD defaultInstance = ((BD)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new BD())));
@@ -26,8 +26,8 @@ namespace ES.DAL {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-VNUJ6NJ\\SQLEXPRESS;Initial Catalog=Colegio;Integrated Securit" +
-            "y=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=POTTEROLEAGA\\SQLEXPRESS;Initial Catalog=ESC_PROJECT;Integrated Securi" +
+            "ty=True")]
         public string conexion {
             get {
                 return ((string)(this["conexion"]));

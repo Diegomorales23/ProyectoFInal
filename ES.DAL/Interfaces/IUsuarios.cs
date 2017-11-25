@@ -37,16 +37,16 @@ namespace ES.DAL.Interfaces
 
         void ActivarCuenta(string Usuario);
 
-        Usuarios[] ObtenerInfo(string Usuario);
+        TB_Usuarios[] ObtenerInfo(string Usuario);
 
-        Roles[] ObtenerRoles();
+        TB_Roles[] ObtenerRoles();
 
-        Usuarios[] ObtenerInfoGeneral();
+        TB_Usuarios[] ObtenerInfoGeneral();
 
         int TotalUsuarios();
 
         string ObtenerRol(int ID_ROL);
 
-        void CrearUsuario(Usuarios usuario);
+        void ActualizarPerfil(TB_Usuarios UpdateProfile);
     }
 }

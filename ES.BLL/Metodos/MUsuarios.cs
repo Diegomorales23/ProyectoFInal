@@ -96,17 +96,17 @@ namespace ES.BLL.Metodos
             _usu.ActivarCuenta(Usuario);
         }
 
-        public Usuarios[] ObtenerInfo(string Usuario)
+        public TB_Usuarios[] ObtenerInfo(string Usuario)
         {
             return _usu.ObtenerInfo(Usuario);
         }
 
-        public Roles[] ObtenerRoles()
+        public TB_Roles[] ObtenerRoles()
         {
             return _usu.ObtenerRoles();
         }
 
-        public Usuarios[] ObtenerInfoGeneral()
+        public TB_Usuarios[] ObtenerInfoGeneral()
         {
             return _usu.ObtenerInfoGeneral();
         }
@@ -121,9 +121,9 @@ namespace ES.BLL.Metodos
             return _usu.ObtenerRol(ID_ROL);
         }
 
-        public void CrearUsuario(Usuarios usuario)
+        public void ActualizarPerfil(TB_Usuarios UpdateProfile)
         {
-            _usu.CrearUsuario(usuario);
+            _usu.ActualizarPerfil(UpdateProfile);
         }
     }
 }

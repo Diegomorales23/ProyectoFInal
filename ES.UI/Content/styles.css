@@ -88,6 +88,20 @@ input[type="number"]::-webkit-inner-spin-button {
     width: 95% !important;
 }
 
+
+
+
+
+
+
+
+
+.logo_menu{
+    height: 100px; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
 .ct-blue {
     stroke: #7A9E9F !important;
 }

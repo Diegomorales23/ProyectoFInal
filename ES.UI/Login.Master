@@ -1,6 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Login.master.cs" Inherits="ES.UI.Login" %>
 
-
 <!DOCTYPE html>
 <html>
 <head runat="server">

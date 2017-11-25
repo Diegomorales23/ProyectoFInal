@@ -12,7 +12,10 @@
 
         #endregion Encryption
 
+        // CapitalizeByWord()
+        string CapitalizeByWord(string data);
+
         // Capitalize()
-        string Capitalize(string text);
+        string Capitalize(string data);
     }
 }

@@ -55,11 +55,18 @@ namespace ES.DAL.Metodos
 
         #endregion
 
-        // Capitalize()
-        public string Capitalize(string text)
+        // CapitalizeByWord()
+        public string CapitalizeByWord(string data)
         {
-            string res = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(text.ToLower());
+            string res = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(data.ToLower());
             return res;
+        }
+
+        // Capitalize()
+        public string Capitalize(string data)
+        {
+            data = data.Substring(0, 1).ToUpper() + data.Substring(1, (data.Length - 1)).ToLower();
+            return data;
         }
     }
 }

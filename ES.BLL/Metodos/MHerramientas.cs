@@ -8,6 +8,12 @@ namespace ES.BLL.Metodos
 {
     public class MHerramientas : IHerramientas
     {
+        private DAL.Interfaces.IHerramientas _herra;
+        public MHerramientas()
+        {
+            _herra = new DAL.Metodos.MHerramientas();
+        }
+        
         #region Encryption
 
         // SecretKey (16 Characters)
@@ -55,11 +61,16 @@ namespace ES.BLL.Metodos
 
         #endregion
 
-        // Capitalize()
-        public string Capitalize(string text)
+        // CapitalizeByWord()
+        public string CapitalizeByWord(string data)
         {
-            string res = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(text.ToLower());
-            return res;
+            return _herra.CapitalizeByWord(data) ;
+        }
+
+        // Capitalize()
+        public string Capitalize(string data)
+        {
+            return _herra.Capitalize(data);
         }
     }
 }
