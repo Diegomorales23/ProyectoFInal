@@ -9,6 +9,7 @@ namespace ES.BLL.Interfaces
 {
    public interface IAlumnos
     {
+        //100% real
         
             List<Alumnos> ListaAlumnos();
             // Select por PK
