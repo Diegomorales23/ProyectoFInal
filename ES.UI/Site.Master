@@ -1,7 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ES.UI.Site" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" runat="server">
 <head runat="server">
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
@@ -122,8 +122,14 @@
 <!-- Wizard -->
 <script src="Scripts/form-wizard.js"></script>
 
+<!-- Img_upload -->
+<script src="Scripts/img_upload.js"></script>
+
 <!-- Dashboard -->
 <script type="text/javascript">
     $(document).ready(function () { demo.initOverviewDashboard(), demo.initCirclePercentage() });
 </script>
+
+<asp:ContentPlaceHolder ID="JS" runat="server" />
+    
 </html>

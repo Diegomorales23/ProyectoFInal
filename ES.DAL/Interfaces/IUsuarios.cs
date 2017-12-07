@@ -48,5 +48,9 @@ namespace ES.DAL.Interfaces
         string ObtenerRol(int ID_ROL);
 
         void ActualizarPerfil(TB_Usuarios UpdateProfile);
+
+        void EliminarUsuario(string Usuario);
+
+        void Obtener_IdRol(string Nombre);
     }
 }

@@ -313,7 +313,7 @@ namespace ES.DAL.Metodos
                 Debug.WriteLine("\nError \nUbicación: Capa DAL -> MUsuario -> ActivarCuenta(). \nDescripción: " + ex.Message);
             }
         }
-        
+
         // METODO DE EJEMPLO
         public TB_Usuarios[] ObtenerInfo(string Usuario)
         {
@@ -397,8 +397,37 @@ namespace ES.DAL.Metodos
 
             try
             {
-                var SQL = string.Format("UPDATE TB_Usuarios SET NOMBRE = '{0}', APELLIDOS = '{1}', TELEFONO = '{2}', EMAIL = '{3}', CEDULA = '{4}', FRASE = '{5}' WHERE USUARIO = '{6}'", UpdateProfile.NOMBRE, UpdateProfile.APELLIDOS, UpdateProfile.TELEFONO, UpdateProfile.EMAIL, UpdateProfile.CEDULA, UpdateProfile.FRASE, UpdateProfile.USUARIO);
+                var SQL = string.Format("UPDATE TB_Usuarios SET NOMBRE = '{0}', APELLIDOS = '{1}', TELEFONO = '{2}', EMAIL = '{3}', FRASE = '{4}' WHERE USUARIO = '{5}'", UpdateProfile.NOMBRE, UpdateProfile.APELLIDOS, UpdateProfile.TELEFONO, UpdateProfile.EMAIL, UpdateProfile.FRASE, UpdateProfile.USUARIO);
                 _db.ExecuteSql(SQL);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\nError \nUbicación: Capa DAL -> MUsuarios -> ActualizarPerfil(). \nDescripción: " + ex.Message);
+            }
+        }
+
+        public void EliminarUsuario(string Usuario)
+        {
+            try
+            {
+                _db.Delete<TB_Usuarios>(x => x.USUARIO == Usuario);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\nError \nUbicación: Capa DAL -> MUsuarios -> EliminarUsuario(). \nDescripción: " + ex.Message);
+            }
+        }
+
+        public void Obtener_IdRol(string Nombre)
+        {
+            Nombre = "USUARIO";
+            try
+            {
+                var SQL = string.Format("EXEC OBTENER_IDROL '{0}'", Nombre);
+                var res = _db.ExecuteSql(SQL);
+                res = Convert.ToInt32(res);
+                Debug.WriteLine(res);
+                //var res =_db.From<TB_Roles>().Where(x => x.NOMBRE == Nombre).Select(x => x.ID_ROL);
             }
             catch (Exception ex)
             {

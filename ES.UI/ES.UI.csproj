@@ -164,6 +164,7 @@
     <Content Include="Scripts\es6-promise-auto.min.js" />
     <Content Include="Scripts\form-wizard.js" />
     <Content Include="Scripts\fullcalendar.min.js" />
+    <Content Include="Scripts\img_upload.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-jvectormap.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
@@ -177,6 +178,7 @@
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\perfect-scrollbar.min.js" />
     <Content Include="Scripts\sweetalert2.js" />
+    <Content Include="Scripts\UsersConfig.js" />
     <Content Include="Site.Master" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
@@ -200,6 +202,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Login.aspx" />
+    <Content Include="UsersConfig.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -317,6 +320,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UsersConfig.aspx.cs">
+      <DependentUpon>UsersConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UsersConfig.aspx.designer.cs">
+      <DependentUpon>UsersConfig.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

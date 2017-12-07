@@ -125,5 +125,17 @@ namespace ES.BLL.Metodos
         {
             _usu.ActualizarPerfil(UpdateProfile);
         }
+
+        public void EliminarUsuario(string Usuario)
+        {
+            _usu.EliminarUsuario(Usuario);
+        }
+
+        public void Obtener_IdRol(string Nombre)
+        {
+            _usu.Obtener_IdRol(Nombre);
+        }
+
+
     }
 }

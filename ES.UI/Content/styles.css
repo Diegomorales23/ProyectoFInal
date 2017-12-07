@@ -1,4 +1,15 @@
-﻿.btn_upload{
+﻿.custom_menu_logo {
+    height: 100px; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.custom-image{
+    height: 150px !important;
+    width: 150px !important;
+}
+
+.btn_upload{
     background-color: #37474f !important;
     color: #f9f6f6 !important;
     border-radius: 30px !important;
@@ -90,11 +101,34 @@ input[type="number"]::-webkit-inner-spin-button {
 
 
 
+/******************************************************/
 
 
 
+.image-preview-input {
+    position: relative;
+    overflow: hidden;
+    margin: 0px;    
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;    
+}
 
+.image-preview-input input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 20px;
+	cursor: pointer;
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
 
+.image-preview-input-title {
+    margin-left:2px;
+}
 
 .logo_menu{
     height: 100px; 

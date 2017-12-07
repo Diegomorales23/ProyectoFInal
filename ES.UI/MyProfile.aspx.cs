@@ -2,6 +2,7 @@
 using ES.BLL.Metodos;
 using ES.DATA;
 using System;
+using System.Diagnostics;
 
 namespace ES.UI
 {
@@ -83,8 +84,7 @@ namespace ES.UI
                     NOMBRE = _herra.Encrypt(E_FirstName.Text.ToUpper()),
                     APELLIDOS = _herra.Encrypt(E_LastName.Text.ToUpper()),
                     TELEFONO = _herra.Encrypt(E_Telephone.Text),
-                    EMAIL = _herra.Encrypt(E_FirstName.Text.ToUpper()),
-                    CEDULA = _herra.Encrypt(E_IdCard.Text.ToUpper()),
+                    EMAIL = _herra.Encrypt(E_Email.Text.ToUpper()),
                     FRASE = _herra.Encrypt(E_Phrase.Value.ToUpper()),
                 };
 
