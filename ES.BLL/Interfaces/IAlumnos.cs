@@ -19,7 +19,7 @@ namespace ES.BLL.Interfaces
             // Update
             void ActualizarAlumnos(Alumnos alumnos);
             // Delete
-            void EliminarAlumnos(int idAlumnos);
+            void EliminarAlumnos(string cedula);
         //buscar productos por categorias
         List<Alumnos> ListarAlumnos(int idCalificaciones);
         bool ExisteAlumno(string cedula);

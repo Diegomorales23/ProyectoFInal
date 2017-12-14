@@ -114,6 +114,7 @@
     <Content Include="BuscarEncargado.aspx" />
     <Content Include="BuscarEstudiantes.aspx" />
     <Content Include="BuscarMaterias.aspx" />
+    <Content Include="BuscarProfesor.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -131,6 +132,8 @@
     <Content Include="EditarEncargado.aspx" />
     <Content Include="EditarEstudiante.aspx" />
     <Content Include="EditarMaterias.aspx" />
+    <Content Include="EditarProfesor.aspx" />
+    <Content Include="EliminarProfesor.aspx" />
     <Content Include="EmailTemplate.html" />
     <Content Include="fonts\font-awesome.css" />
     <Content Include="fonts\font-awesome.min.css" />
@@ -143,7 +146,9 @@
     <Content Include="images\logo.png" />
     <Content Include="images\profile.png" />
     <Content Include="Index.aspx" />
+    <Content Include="InsertarCalificaciones.aspx" />
     <Content Include="InsertarEncargado.aspx" />
+    <Content Include="InsertarProfesor.aspx" />
     <Content Include="MyProfile.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -234,6 +239,13 @@
     <Compile Include="BuscarMaterias.aspx.designer.cs">
       <DependentUpon>BuscarMaterias.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BuscarProfesor.aspx.cs">
+      <DependentUpon>BuscarProfesor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuscarProfesor.aspx.designer.cs">
+      <DependentUpon>BuscarProfesor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CrearEstudiante.aspx.cs">
       <DependentUpon>CrearEstudiante.aspx</DependentUpon>
     </Compile>
@@ -266,6 +278,20 @@
     <Compile Include="EditarMaterias.aspx.designer.cs">
       <DependentUpon>EditarMaterias.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EditarProfesor.aspx.cs">
+      <DependentUpon>EditarProfesor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarProfesor.aspx.designer.cs">
+      <DependentUpon>EditarProfesor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EliminarProfesor.aspx.cs">
+      <DependentUpon>EliminarProfesor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarProfesor.aspx.designer.cs">
+      <DependentUpon>EliminarProfesor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -280,11 +306,25 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="InsertarCalificaciones.aspx.cs">
+      <DependentUpon>InsertarCalificaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarCalificaciones.aspx.designer.cs">
+      <DependentUpon>InsertarCalificaciones.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InsertarEncargado.aspx.cs">
       <DependentUpon>InsertarEncargado.aspx</DependentUpon>
     </Compile>
     <Compile Include="InsertarEncargado.aspx.designer.cs">
       <DependentUpon>InsertarEncargado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsertarProfesor.aspx.cs">
+      <DependentUpon>InsertarProfesor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsertarProfesor.aspx.designer.cs">
+      <DependentUpon>InsertarProfesor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -335,6 +375,10 @@
     <ProjectReference Include="..\ES.BLL\ES.BLL.csproj">
       <Project>{6279396f-f73f-46cb-927a-4f36732ef629}</Project>
       <Name>ES.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ES.DAL\ES.DAL.csproj">
+      <Project>{1D1F0555-F125-4A61-94AA-F7EDFD647686}</Project>
+      <Name>ES.DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\ES.DATA\ES.DATA.csproj">
       <Project>{5cbc529b-aabd-41c2-8b36-f96eb26bcdf6}</Project>

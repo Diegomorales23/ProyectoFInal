@@ -14,7 +14,7 @@ namespace ES.BLL.Metodos
         {
             profe = new DAL.Metodos.MProfesor();
         }
-        public void ActualizarProfesor(Profesor profesor)
+        public void ActualizarProfesor(TB_PROFESOR profesor)
         {
             profe.ActualizarProfesor(profesor);
         }
@@ -24,17 +24,17 @@ namespace ES.BLL.Metodos
             profe.EliminarProfesor(idProfesor);
         }
 
-        public void InsertarProfesor(Profesor profesor)
+        public void InsertarProfesor(TB_PROFESOR profesor)
         {
             profe.InsertarProfesor(profesor);
         }
 
-        public List<Profesor> ListaProfesor()
+        public List<TB_PROFESOR> ListaProfesor()
         {
             return profe.ListaProfesor();
         }
 
-        Profesor IProfesor.BuscarProfesor(int idProfesor)
+        TB_PROFESOR IProfesor.BuscarProfesor(int idProfesor)
         {
             return profe.BuscarProfesor(idProfesor);
         }
