@@ -8,13 +8,13 @@ namespace ES.BLL.Interfaces
 {
    public interface IProfesor
     {
-        List<Profesor> ListaProfesor();
+        List<TB_PROFESOR> ListaProfesor();
         // Select por PK
-        Profesor BuscarProfesor(int idProfesor);
+        TB_PROFESOR BuscarProfesor(int idProfesor);
         // Insert
-        void InsertarProfesor(Profesor profesor);
+        void InsertarProfesor(TB_PROFESOR profesor);
         // Update
-        void ActualizarProfesor(Profesor profesor);
+        void ActualizarProfesor(TB_PROFESOR profesor);
         // Delete
         void EliminarProfesor(int idProfesor);
     }
