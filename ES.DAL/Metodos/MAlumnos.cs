@@ -9,7 +9,7 @@ using ServiceStack.OrmLite;
 using System.Data;
 namespace ES.DAL.Metodos
 {
-    /*
+
     public class MAlumnos : IAlumnos
     {
 
@@ -32,10 +32,11 @@ namespace ES.DAL.Metodos
                .FirstOrDefault();
         }
 
-        public void EliminarAlumnos(int idAlumnos)
+        public void EliminarAlumnos(string cedula)
         {
-            //_db.Delete<Alumnos>(x => x.IdAlumno == idAlumnos);
+            _db.Delete<Alumnos>(x => x.Cedula == cedula);
         }
+
 
         public bool ExisteAlumno(string cedula)
         {
@@ -77,10 +78,15 @@ namespace ES.DAL.Metodos
             return _db.Select<Alumnos>();
         }
 
-       /* public List<Alumnos> ListarAlumnos(int idAlumnos)
+        public List<Alumnos> ListarAlumnos(int idCalificaciones)
         {
-            return _db.Select<Alumnos>(x => x.IdAlumno == idAlumnos);
+            throw new NotImplementedException();
+        }
+
+        public List<Alumnos> ListarAlumnos(string idAlumnos)
+        {
+            return _db.Select<Alumnos>(x => x.Cedula == idAlumnos);
         }
     }
-*/
+
 }

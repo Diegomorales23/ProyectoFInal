@@ -70,6 +70,7 @@
     <Compile Include="TB_Niveles.cs" />
     <Compile Include="TB_Notas.cs" />
     <Compile Include="TB_Parentesco.cs" />
+    <Compile Include="TB_PROFESOR.cs" />
     <Compile Include="TB_Roles.cs" />
     <Compile Include="TB_Usuarios.cs" />
     <Compile Include="Usuarios.cs" />

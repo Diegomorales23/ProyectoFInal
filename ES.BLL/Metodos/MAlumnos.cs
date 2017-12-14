@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ES.DATA;
 using ES.BLL.Interfaces;
 namespace ES.BLL.Metodos
-{/*
+{
     public class MAlumnos : IAlumnos
     {
         private DAL.Interfaces.IAlumnos alu;
@@ -21,12 +21,17 @@ namespace ES.BLL.Metodos
 
         public Alumnos BuscarAlumnos(string cedula)
         {
-           return alu.BuscarAlumnos(cedula);
+            return alu.BuscarAlumnos(cedula);
         }
 
         public void EliminarAlumnos(int idAlumnos)
         {
-            alu.EliminarAlumnos(idAlumnos);
+            throw new NotImplementedException();
+        }
+
+        public void EliminarAlumnos(string cedula)
+        {
+            alu.EliminarAlumnos(cedula);
         }
 
         public bool ExisteAlumno(string cedula)
@@ -49,6 +54,6 @@ namespace ES.BLL.Metodos
             throw new NotImplementedException();
         }
 
-       
+
     }
-*/}
+}

@@ -21,29 +21,29 @@ namespace ES.DAL.Metodos
             _conexion = new OrmLiteConnectionFactory(BD.Default.conexion, SqlServerDialect.Provider);
             _db = _conexion.Open();
         }
-        public void ActualizarProfesor(Profesor profesor)
+        public void ActualizarProfesor(TB_PROFESOR profesor)
         {
             _db.Update(profesor);
         }
 
-        public Profesor BuscarProfesor(int idProfesor)
+        public TB_PROFESOR BuscarProfesor(int idProfesor)
         {
-           return _db.Select<Profesor>(x => x.IdProfesor == idProfesor).FirstOrDefault();
+           return _db.Select<TB_PROFESOR>(x => x.Id_Profesor == idProfesor).FirstOrDefault();
         }
 
         public void EliminarProfesor(int idProfesor)
         {
-            _db.Delete<Profesor>(x => x.IdProfesor == idProfesor);
+            _db.Delete<TB_PROFESOR>(x => x.Id_Profesor == idProfesor);
         }
 
-        public void InsertarProfesor(Profesor profesor)
+        public void InsertarProfesor(TB_PROFESOR profesor)
         {
             _db.Insert(profesor);
         }
 
-        public List<Profesor> ListaProfesor()
+        public List<TB_PROFESOR> ListaProfesor()
         {
-            throw new NotImplementedException();
+            return _db.Select<TB_PROFESOR>();
         }
     }
 }
