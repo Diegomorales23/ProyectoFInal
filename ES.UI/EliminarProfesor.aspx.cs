@@ -14,7 +14,7 @@ namespace ES.UI
     {
         public IProfesor prof = new BLL.Metodos.MProfesor();
 
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender,  EventArgs e)
         {
 
         }
