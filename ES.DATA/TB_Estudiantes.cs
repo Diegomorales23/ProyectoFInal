@@ -5,11 +5,7 @@
         public string ID_ESTUDIANTE { get; set; }
 
         public string ID_ENCARGADO { get; set; }
-
-        public string ID_GUIA { get; set; }
-
-        public string ID_NOTA { get; set; }
-
+        
         public string NOMBRE { get; set; }
 
         public string APELLIDOS { get; set; }
@@ -35,7 +31,5 @@
         public bool ADELANTA { get; set; }
 
         public string NIVEL_ADELANTA { get; set; }
-
-        public string FOTO { get; set; }
     }
 }

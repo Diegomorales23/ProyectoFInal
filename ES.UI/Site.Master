@@ -130,6 +130,5 @@
     $(document).ready(function () { demo.initOverviewDashboard(), demo.initCirclePercentage() });
 </script>
 
-<asp:ContentPlaceHolder ID="JS" runat="server" />
-    
+<asp:ContentPlaceHolder ID="JS" runat="server" />    
 </html>

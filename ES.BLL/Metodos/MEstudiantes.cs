@@ -16,5 +16,33 @@ namespace ES.BLL.Metodos
         {
             return _est.GetEstudiantesInfo();
         }
+
+
+        // GetCantEstudiantes()
+        public int GetCantEstudiantes()
+        {
+            return _est.GetCantEstudiantes();
+        }
+        
+        public void InsertarEstudiante(TB_Estudiantes Estudiante)
+        {
+            _est.InsertarEstudiante(Estudiante);
+        }
+
+        public void EliminarEstudiante(string IdEstudiante)
+        {
+            _est.EliminarEstudiante(IdEstudiante);
+        }
+
+        public TB_Estudiantes[] BuscarEstudiante(string IdEstudiante)
+        {
+            return _est.BuscarEstudiante(IdEstudiante);
+        }
+
+        public void ActualizarEstudiante(TB_Estudiantes Estudiante)
+        {
+            _est.ActualizarEstudiante(Estudiante);
+        }
+
     }
 }

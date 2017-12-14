@@ -61,7 +61,7 @@
       <DependentUpon>BD.settings</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IAlumnos.cs" />
-    <Compile Include="Interfaces\ICalificaciones.cs" />
+    <Compile Include="Interfaces\INotas.cs" />
     <Compile Include="Interfaces\IEncargado.cs" />
     <Compile Include="Interfaces\IEstudiantes.cs" />
     <Compile Include="Interfaces\IGrupo.cs" />
@@ -69,11 +69,12 @@
     <Compile Include="Interfaces\IGrupo_Profesor.cs" />
     <Compile Include="Interfaces\IHerramientas.cs" />
     <Compile Include="Interfaces\IMaterias.cs" />
+    <Compile Include="Interfaces\IParentesco.cs" />
     <Compile Include="Interfaces\IProfesor.cs" />
     <Compile Include="Interfaces\IRoles.cs" />
     <Compile Include="Interfaces\IUsuarios.cs" />
     <Compile Include="Metodos\MAlumnos.cs" />
-    <Compile Include="Metodos\MCalificaciones.cs" />
+    <Compile Include="Metodos\MNotas.cs" />
     <Compile Include="Metodos\MEncargado.cs" />
     <Compile Include="Metodos\MEstudiantes.cs" />
     <Compile Include="Metodos\MGrupo.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Metodos\MGrupo_Profesor.cs" />
     <Compile Include="Metodos\MHerramientas.cs" />
     <Compile Include="Metodos\MMaterias.cs" />
+    <Compile Include="Metodos\MParentesco.cs" />
     <Compile Include="Metodos\MProfesor.cs" />
     <Compile Include="Metodos\Mroles.cs" />
     <Compile Include="Metodos\MUsuarios.cs" />

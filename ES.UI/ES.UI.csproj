@@ -151,6 +151,7 @@
     </Content>
     <Content Include="Login.Master" />
     <Content Include="ResetPassword.aspx" />
+    <Content Include="Scripts\AdmEstudiantes.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-notify.js" />
     <Content Include="Scripts\bootstrap-selectpicker.js" />

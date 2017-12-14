@@ -20,6 +20,20 @@ namespace ES.DAL.Metodos
             _conexion = new OrmLiteConnectionFactory(BD.Default.conexion, SqlServerDialect.Provider);
             _db = _conexion.Open();
         }
+
+        public void InsertarEncargado(TB_Encargados Encargado)
+        {
+            _db.Insert(Encargado);
+        }
+
+
+
+
+
+
+
+
+
         public void ActualizarEncargado(Encargado encargado)
         {
             _db.Update(encargado);
@@ -36,10 +50,7 @@ namespace ES.DAL.Metodos
             _db.Delete<Encargado>(x => x.IdEncargado == idEncargado);
         }
 
-        public void InsertarEncargado(Encargado encargado)
-        {
-            _db.Insert(encargado);
-        }
+        
 
         public List<Encargado> ListaEncargado()
         {

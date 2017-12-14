@@ -15,6 +15,17 @@ namespace ES.BLL.Metodos
         {
             enca = new DAL.Metodos.MEncargado();
         }
+
+        public void InsertarEncargado(TB_Encargados Encargado)
+        {
+            enca.InsertarEncargado(Encargado);
+        }
+
+
+
+
+
+
         public void ActualizarEncargado(Encargado encargado)
         {
             enca.ActualizarEncargado(encargado);
@@ -30,10 +41,6 @@ namespace ES.BLL.Metodos
             enca.EliminarEncargado(idEncargado);
         }
 
-        public void InsertarEncargado(Encargado encargado)
-        {
-            enca.InsertarEncargado(encargado);
-        }
 
         public List<Encargado> ListaEncargado()
         {
