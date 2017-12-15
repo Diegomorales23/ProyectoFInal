@@ -1,237 +1,99 @@
-﻿@import "compass/css3";
-
-@import "compass";
-@import "compass/css3/user-interface"; // For the user-select mixin
-
-// Variables
-// ------------------
-
-// Global
-$baseFontSize:      20px;
-$baseLineHeight:    $baseFontSize;
-$blue:              rgba(4,131,163,1);
-$bkgd-color:        #827d86;
-
-// Calculator
-$calc-height:        370px;
-$calc-width:         256px;
-$calc-color:         #cdc6c0;
-$calc-padding:       20px;
-$calc-borderRadius:  20px;
-
-// Value
-$value-size:         40px;
-$value-color:        $calc-color + 50;
-
-// Buttons
-$btn-size:           45px;
-$btn-font-size:      20px;
-$btn-color:          $calc-color;
-$btn-block-color:    #f5b330;
-$btn-text-color:     $bkgd-color - 50;
-
-// Mixins
-// ------------------
-
-@mixin depth-effect($inner-shadows: $btn-color, $outer-shadows: $calc-color) {
-  @include box-shadow (
-    // Drop shadow
-    0 0 2px rgba(darken($outer-shadows, 100%), 1),  
-    
-    //Top light
-    0 10px 5px -5px rgba($inner-shadows + 50, 1) inset,   
-
-    //Bottom shadow
-    0 -10px 5px -8px rgba($inner-shadows - 80, 1) inset,
-    
-    // All the way around for depth 
-    0 0 2px 0 rgba($inner-shadows - 200, .5) inset        
-  ); 
-  &:active {
-    @include box-shadow (
-      // Drop shadow
-      0 0 2px rgba(darken($outer-shadows, 100%), 1),  
-      
-      //Top light
-      0 5px 5px -5px rgba($inner-shadows + 50, 1) inset,   
-  
-      //Bottom shadow
-      0 -5px 5px -8px rgba($inner-shadows - 80, 1) inset,    
-      
-      // All the way around for depth 
-      0 0 6px -1px rgba($inner-shadows - 200, .5) inset        
-    ); 
-  }
-}
-
-@mixin bkgd-grad($grad-color: $calc-color) {
-  background-color: $grad-color;
-  @include filter-gradient($grad-color + 30, $grad-color - 30, vertical);
-  @include background-image(linear-gradient(top, $grad-color + 30, $grad-color - 30));
-}
-
-// Styles
-// ------------------
-
-html {
-  height: 100%;
-}
-
-body {
-  height: 100%;
-  width: 100%;
-  background-color: $bkgd-color; 
-  @include filter-gradient(#0483a3, #002733, horizontal); 
-  $experimental-support-for-svg: true;
-  @include background-image(radial-gradient(top, circle cover,  $bkgd-color 0%, darken($bkgd-color, 15%) 39%, darken($bkgd-color, 23%) 100%));
-  position: relative;
-  font-size: $baseFontSize;
-  line-height: $baseLineHeight;
-  background-attachment: fixed;
+﻿bbody, div, a {
+    padding: 0;
+    margin: 0;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 
 a {
-  text-decoration: underline;
+    position: relative;
+    cursor: pointer;
 }
 
-$calc-grad-top:     $calc-color + 30;
-$calc-grad-bottom:  $calc-color - 30;
-
-.calculator {
-  @include box-sizing(border-box);
-  @include border-radius($calc-borderRadius);
-  @include bkgd-grad;
-  @include user-select(none);
-  @include rotate3d(76%);
-  overflow: hidden;
-  width: $calc-width;
-  height: $calc-height;
-  padding: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -$calc-height / 2;
-  margin-left: -$calc-width / 2;
-
-  
-  @include box-shadow (
-    // Drop shadow
-    0 10px 40px rgba($bkgd-color - 100, .8),  
-    
-    //Top light
-    0 10px 5px -5px rgba($calc-color + 70, 1) inset,   
-
-    //Bottom shadow
-    0 -10px 5px -8px rgba($calc-color - 70, 1) inset,  
-    
-    // All the way around for depth 
-    0 0 8px -1px rgba($calc-color - 200, 1) inset        
-  ); 
-  
-
-
-
+#calculator {
+    background-color: white;
+    width: 310px;
+    height: 100%;
+    margin: 10px auto;
+    padding: 5px;
+    padding-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.4);
 }
 
-.input-prepend { 
-  position: relative; 
-  .prepend {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    color: $calc-color - 40
-  }
+#screen {
+    height: 70px;
+    width: 95%;
+    background-color: black;
+    color: #47DBE2;
+    margin: auto;
+    margin-bottom: 5px;
+    text-align: right;
+    font-size: 60px;
+    padding: 0 5px;
+    border-radius: 5px;
+    cursor: default;
 }
 
-.value,
-.value[disabled=disabled] {
-  @include box-sizing(border-box);
-  @include bkgd-grad($value-color);
-  @include box-shadow(
-    0 0 8px 0 rgba($calc-color - 80, .4) inset  
-  );
-  width: 100%;
-  margin-bottom: 20px;
-  height: $value-size;
-  padding: 5px 10px;
-  text-align: right;
-  border: 1px solid $calc-color - 30;
-  color: $btn-text-color;
+#numbers, #operators {
+    margin: auto;
 }
 
-.btn {
-  @include border-radius(10px);
-  @include depth-effect();
-  @include box-sizing(border-box);
-  @include single-transition(color);
-  @include bkgd-grad($btn-color);
-  @include text-shadow(1px 1px 0 rgba($btn-color + 20, 1));
-  
-  border: 1px solid darken($btn-color, 40%);
-  color: $btn-text-color;
-  cursor: pointer;
-  display: inline-block;
-  float: left;
-  font-size: $btn-font-size;
-  font-weight: bold;
-  height: $btn-size;
-  line-height: $btn-size;
-  margin: 0 6px 12px;
-  padding: 0;
-  text-align: center;
-  width: $btn-size;
-  
-  
-  // Last Column of buttons
-  &:nth-child(4n) {
-    margin-right: 0;
-  }
-  
-  // First Column of Buttons
-  &:nth-child(4n - 3) {
-    margin-left: 0;
-  }
-  
-  &:hover {
-    @include bkgd-grad($btn-color + 10);
-  }
-  
-}
+    #numbers a, #operators a {
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+    }
 
-.btn-function {
-  @include bkgd-grad($btn-color - 25);
-  @include depth-effect($btn-color - 20);
-  line-height: $btn-size - 4;
-  &:hover {
-    @include bkgd-grad($btn-color - 15);
-  }
-}
+    #operators a {
+        width: 43px;
+        height: 43px;
+        color: black;
+        font-size: 32px;
+        padding: 2px;
+        margin: 5px 6px;
+        background: -webkit-gradient(linear, left top, left bottom, from(#EDEDED), to(#DCDCDC));
+        background: -moz-linear-gradient(top, #EDEDED, #DCDCDC);
+        border-radius: 50% / 14%;
+        box-shadow: 0px 3px 0px 0px #B6B6B6, 0px 2px 6px 0px rgba(0, 0, 0, 0.4);
+        border: 1px solid #C4C4C4;
+    }
 
-.btn-block {
-  @extend .btn;
-  width: 100%;
-  margin: 0;
-  
-  color: #fff;
-  @include text-shadow(1px 1px 0 rgba($btn-block-color - 50, 1));
-  
-  background: $btn-block-color;
-  @include depth-effect($btn-block-color);
-  @include bkgd-grad($btn-block-color);
-  &:hover { @include bkgd-grad($btn-block-color + 5); }
-}
+        #operators a:active {
+            top: 2px;
+            box-shadow: 0px 0px 0px 0px rgba(100, 173, 175, 1), 0px 1px 6px 0px rgba(0, 0, 0, 0.4);
+        }
 
-// Other stuff
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+        #operators a:hover {
+            border: 1px solid #919191;
+            background: -webkit-gradient(linear, left top, left bottom, from(#FFFFFF), to(#DCDCDC));
+            background: -moz-linear-gradient(top, #FFFFFF, #DCDCDC);
+        }
 
-.debug {
-  display: none;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  .red {color: red;}
-}
+    #numbers a {
+        width: 50px;
+        height: 50px;
+        color: white;
+        font-size: 30pt;
+        padding: 2px;
+        margin: 8px 15px;
+        border-radius: 50% / 14%;
+        background: linear-gradient(to bottom, rgb(124,197,201) 0%,rgb(135,216,220) 100%);
+        border: 1px solid #64adaf;
+        box-shadow: 0px 6px 0px 0px rgba(100, 173, 175, 1), 0px 5px 12px 0px rgba(0, 0, 0, 0.4);
+    }
+
+        #numbers a:active {
+            top: 4px;
+            box-shadow: 0px 2px 0px 0px rgba(100, 173, 175, 1), 0px 5px 6px 0px rgba(0, 0, 0, 0.4);
+        }
+
+        #numbers a:hover {
+            background: linear-gradient(to bottom, #A7DEE2 0%,rgb(135,216,220) 100%);
+            border: 1px solid #818181;
+        }
