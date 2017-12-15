@@ -405,7 +405,7 @@
                 colorByPoint: true,
                 data: [{
                     name: 'Microsoft Internet Explorer',
-                    y: 56.33,
+                    y: 99.33,
                     drilldown: 'Microsoft Internet Explorer'
                 }, {
                     name: 'Chrome',

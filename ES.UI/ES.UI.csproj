@@ -128,6 +128,7 @@
     <Content Include="Content\switcher.css" />
     <Content Include="Content\themify-icons.css" />
     <Content Include="CrearMaterias.aspx" />
+    <Content Include="DB.html" />
     <Content Include="EditarEncargado.aspx" />
     <Content Include="EditarMaterias.aspx" />
     <Content Include="EmailTemplate.html" />
