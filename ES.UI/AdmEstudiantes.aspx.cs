@@ -123,6 +123,7 @@ namespace ES.UI
         public static TB_Estudiantes[] GetInfoEstudiante(string IdEstudiante)
         {
             var res = _est.BuscarEstudiante(IdEstudiante);
+
             res[0].NOMBRE = _herra.CapitalizeByWord(_herra.Decrypt(res[0].NOMBRE));
             res[0].APELLIDOS = _herra.CapitalizeByWord(_herra.Decrypt(res[0].APELLIDOS));
             res[0].TELEFONO = _herra.Decrypt(res[0].TELEFONO);

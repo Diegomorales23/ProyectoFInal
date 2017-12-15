@@ -70,7 +70,7 @@
     <Compile Include="Interfaces\IHerramientas.cs" />
     <Compile Include="Interfaces\IMaterias.cs" />
     <Compile Include="Interfaces\IParentesco.cs" />
-    <Compile Include="Interfaces\IProfesor.cs" />
+    <Compile Include="Interfaces\IProfesores.cs" />
     <Compile Include="Interfaces\IRoles.cs" />
     <Compile Include="Interfaces\IUsuarios.cs" />
     <Compile Include="Metodos\MAlumnos.cs" />
@@ -83,7 +83,7 @@
     <Compile Include="Metodos\MHerramientas.cs" />
     <Compile Include="Metodos\MMaterias.cs" />
     <Compile Include="Metodos\MParentesco.cs" />
-    <Compile Include="Metodos\MProfesor.cs" />
+    <Compile Include="Metodos\MProfesores.cs" />
     <Compile Include="Metodos\Mroles.cs" />
     <Compile Include="Metodos\MUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

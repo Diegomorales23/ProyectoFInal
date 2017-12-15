@@ -106,9 +106,45 @@
 
 
 <asp:Content ID="Content" ContentPlaceHolderID="Content" runat="server">
-    <!-- CALCULADORA -->
+<div class="calculator">
+  <div class="input-prepend">
+    <span class="prepend" id="currentOperator"></span>
+    <input class="value" disabled="disabled" id="value" value="0" type="number" ng-model="calcScreen" />
+  </div>
+  <div class="keypad">
+    <span data-num="1" class="btn">1</span>
+    <span data-num="2" class="btn">2</span>
+    <span data-num="3" class="btn">3</span>
+    <span data-operator="&plus;" class="btn btn-function">&plus;</span>
+    
+    <span data-num="4" class="btn">4</span>
+    <span data-num="5" class="btn">5</span>
+    <span data-num="6" class="btn">6</span>
+    <span data-operator="&minus;" class="btn btn-function">&minus;</span>
+    
+    <span data-num="7" class="btn">7</span>
+    <span data-num="8" class="btn">8</span>
+    <span data-num="9" class="btn">9</span>
+    <span data-operator="&times;" class="btn btn-function">&times;</span>
+    
+    <span id="clear" class="btn btn-function">c</span>
+    <span data-num="0" class="btn">0</span>
+    <span id="neg" class="btn btn-function">-</span>
+    <span data-operator="&divide;" class="btn btn-function">&divide;</span>
+    
+    <span data-equals="=" class="btn btn-block">=</span>
+  </div>
+</div>
+
+<div class="debug">
+  <div>Key: <span id="key"></span></div>
+  <div>Current: <span id="current"></span></div>
+  <div>Previous: <span id="previous"></span></div>
+  <div>Operator: <span id="operator"></span></div>
+  <div>newInput: <span id="newInput"></span></div>
+</div>
 </asp:Content>
 
 <asp:Content ID="JS" ContentPlaceHolderID="JS" runat="server">
-
+        <script src="Scripts/calculator.js"></script>
 </asp:Content>
