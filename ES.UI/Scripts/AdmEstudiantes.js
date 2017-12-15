@@ -23,22 +23,65 @@ $().ready(function () {
 
             $.ajax({
                 type: "POST",
-                url: "UsersConfig.aspx/VerUsuario",
-                data: "{'Usuario' : '" + row.Usuario + "'}",
+                url: "AdmEstudiantes.aspx/GetInfoEstudiante",
+                data: "{'IdEstudiante' : '" + row.IdCedula + "'}",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (response) {
                     var res = response.d
 
-                    document.getElementById("D_txtNombre").value = res[0];
-                    document.getElementById("D_txtApellidos").value = res[1]
-                    document.getElementById("D_txtEmail").value = res[2];
-                    document.getElementById("D_txtCedula").value = res[3];
-                    document.getElementById("D_txtRol").value = res[4];
-                    document.getElementById("D_txtTelefono").value = res[5];
-                    document.getElementById("D_Foto").src = res[6];
+                    document.getElementById("V_txtCedula").value = res[0].ID_ESTUDIANTE;
+                    document.getElementById("V_txtNombre").value = res[0].NOMBRE
+                    document.getElementById("V_txtApellidos").value = res[0].APELLIDOS
+                    document.getElementById("V_txtTelefono").value = res[0].TELEFONO                                       
+                    document.getElementById("V_txtEmail").value = res[0].EMAIL
 
-                    $("#VerUsuario").modal("show")
+                    if (res[0].GRADUADO == true) {
+                        document.getElementById("V_txtGraduado").value = "Si"
+                    }
+                    else {
+                        document.getElementById("V_txtGraduado").value = "No"
+                    }
+
+                    if (res[0].ABANDONO == true) {
+                        document.getElementById("V_txtAbandono").value = "Si"
+                    }
+                    else {
+                        document.getElementById("V_txtAbandono").value = "No"
+                    }
+
+                    document.getElementById("V_txtAnoGraduacion").value = res[0].ANO_GRADUACION;
+
+                    if (res[0].ID_NIVEL == "1") {
+                        document.getElementById("V_txtGrado").value = "Séptimo";
+                    }
+                    else if (res[0].ID_NIVEL == "2") {
+                        document.getElementById("V_txtGrado").value = "Octavo";
+                    }
+                    else if (res[0].ID_NIVEL == "3") {
+                        document.getElementById("V_txtGrado").value = "Noveno";
+                    }
+                    else if (res[0].ID_NIVEL == "4") {
+                        document.getElementById("V_txtGrado").value = "Décimo";
+                    }
+                    else if (res[0].ID_NIVEL == "5") {
+                        document.getElementById("V_txtGrado").value = "Undécimo";
+                    }
+
+                    document.getElementById("V_txtSeccion").value = res[0].ID_NIVEL;
+
+                    if (res[0].ADELANTA == true) {
+                        document.getElementById("V_txtAdelanta").value = "Si";
+                    }
+                    else {
+                        document.getElementById("V_txtAdelanta").value = "No";
+                    }
+
+                    document.getElementById("V_txtNivelAdelanta").value = res[0].NIVEL_ADELANTA;
+                    document.getElementById("V_txtPadecimientos").value = res[0].PADECIMIENTOS;
+                    document.getElementById("V_txtDireccion").value = res[0].DIRECCION;
+
+                    $("#VerEstudiante").modal("show");
                 }
             });
         },

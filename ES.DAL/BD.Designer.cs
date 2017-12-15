@@ -26,7 +26,8 @@ namespace ES.DAL {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=ESC_PROJECT;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=POTTEROLEAGA\\SQLEXPRESS;Initial Catalog=ESC_PROJECT;Integrated Securi" +
+            "ty=True")]
         public string conexion {
             get {
                 return ((string)(this["conexion"]));

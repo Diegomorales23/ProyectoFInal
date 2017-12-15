@@ -111,8 +111,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdmEstudiantes.aspx" />
+    <Content Include="AdmProfesores.aspx" />
     <Content Include="BuscarEncargado.aspx" />
-    <Content Include="BuscarEstudiantes.aspx" />
     <Content Include="BuscarMaterias.aspx" />
     <Content Include="BuscarProfesor.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -127,10 +127,8 @@
     <Content Include="Content\form-wizard-teal.css" />
     <Content Include="Content\switcher.css" />
     <Content Include="Content\themify-icons.css" />
-    <Content Include="CrearEstudiante.aspx" />
     <Content Include="CrearMaterias.aspx" />
     <Content Include="EditarEncargado.aspx" />
-    <Content Include="EditarEstudiante.aspx" />
     <Content Include="EditarMaterias.aspx" />
     <Content Include="EditarProfesor.aspx" />
     <Content Include="EliminarProfesor.aspx" />
@@ -140,6 +138,7 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="ForgotPassword.aspx" />
+    <Content Include="Herramientas.aspx" />
     <Content Include="images\bg.jpg" />
     <Content Include="images\bg_card.jpg" />
     <Content Include="images\Header_lock.png" />
@@ -219,18 +218,19 @@
     <Compile Include="AdmEstudiantes.aspx.designer.cs">
       <DependentUpon>AdmEstudiantes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdmProfesores.aspx.cs">
+      <DependentUpon>AdmProfesores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdmProfesores.aspx.designer.cs">
+      <DependentUpon>AdmProfesores.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BuscarEncargado.aspx.cs">
       <DependentUpon>BuscarEncargado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="BuscarEncargado.aspx.designer.cs">
       <DependentUpon>BuscarEncargado.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="BuscarEstudiantes.aspx.cs">
-      <DependentUpon>BuscarEstudiantes.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="BuscarEstudiantes.aspx.designer.cs">
-      <DependentUpon>BuscarEstudiantes.aspx</DependentUpon>
     </Compile>
     <Compile Include="BuscarMaterias.aspx.cs">
       <DependentUpon>BuscarMaterias.aspx</DependentUpon>
@@ -246,12 +246,6 @@
     <Compile Include="BuscarProfesor.aspx.designer.cs">
       <DependentUpon>BuscarProfesor.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CrearEstudiante.aspx.cs">
-      <DependentUpon>CrearEstudiante.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CrearEstudiante.aspx.designer.cs">
-      <DependentUpon>CrearEstudiante.aspx</DependentUpon>
-    </Compile>
     <Compile Include="CrearMaterias.aspx.cs">
       <DependentUpon>CrearMaterias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -264,12 +258,6 @@
     </Compile>
     <Compile Include="EditarEncargado.aspx.designer.cs">
       <DependentUpon>EditarEncargado.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EditarEstudiante.aspx.cs">
-      <DependentUpon>EditarEstudiante.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EditarEstudiante.aspx.designer.cs">
-      <DependentUpon>EditarEstudiante.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditarMaterias.aspx.cs">
       <DependentUpon>EditarMaterias.aspx</DependentUpon>
@@ -298,6 +286,13 @@
     </Compile>
     <Compile Include="ForgotPassword.aspx.designer.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Herramientas.aspx.cs">
+      <DependentUpon>Herramientas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Herramientas.aspx.designer.cs">
+      <DependentUpon>Herramientas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

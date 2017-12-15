@@ -14,7 +14,7 @@ namespace ES.UI
 {
     public partial class InsertarCalificaciones : System.Web.UI.Page
     {
-        ICalificaciones cal = new BLL.Metodos.MCalificaciones();
+        INotas cal = new BLL.Metodos.MNotas();
         IMaterias mat = new BLL.Metodos.MMaterias();
         IAlumnos est = new BLL.Metodos.MAlumnos();
 

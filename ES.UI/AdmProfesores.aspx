@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Adm. Estudiantes" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdmEstudiantes.aspx.cs" Inherits="ES.UI.AdmEstudiantes" %>
+﻿<%@ Page Title="Adm. Profesores" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdmProfesores.aspx.cs" Inherits="ES.UI.AdmProfesores" %>
 
 <asp:Content ID="Menu" ContentPlaceHolderID="Menu" runat="server">
     <div class="sidebar" data-background-color="brown" data-active-color="danger">
@@ -6,23 +6,21 @@
             <a href="Index.aspx" class="simple-text logo-normal">
                 <img class="img-responsive logo-normal" src="images/logo.png" style="height: 100px; margin-left: auto; margin-right: auto;" />
             </a>
-        </div>
+        </div><!-- end logo -->
 
         <div class="sidebar-wrapper">
             <div class="user">
                 <div class="info">
                     <div class="photo">
                         <img src="images/profile.png" />
-                    </div>
+                    </div><!-- end photo -->
 
                     <a data-toggle="collapse" href="#users" class="collapsed">
                         <span>Perfil
                             <b class="caret"></b>
                         </span>
                     </a>
-
                     <div class="clearfix"></div>
-
                     <div class="collapse" id="users">
                         <ul class="nav">
                             <li>
@@ -38,10 +36,10 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
-                </div>
-            </div>
-
+                    </div><!-- end collapse -->
+                </div><!-- end info -->
+            </div><!-- end user -->
+    
             <ul class="nav">
                 <li>
                     <a href="Index.aspx">
@@ -49,16 +47,16 @@
                         <p>DASHBOARD</p>
                     </a>
                 </li>
-                <li class="active">
+                <li>
                     <a href="AdmEstudiantes.aspx">
                         <i class="fa fa-sliders"></i>
-                        <p>Adm. de Estudiantes</p>
+                        <p>Adm Estudiantes</p>
                     </a>
                 </li>
-                <li>
-                    <a href="#">
+                <li class="active">
+                    <a href="AdmProfesores.aspx">
                         <i class="fa fa-sliders"></i>
-                        <p>Adm. de Profesores</p>
+                        <p>Adm Profesores</p>
                     </a>
                 </li>
                 <li>
@@ -68,8 +66,8 @@
                     </a>
                 </li>
             </ul>
-        </div>
-    </div>
+        </div><!-- end sidebar-wrapper -->
+    </div><!-- end sidebar --> 
 </asp:Content>
 
 <asp:Content ID="Head" ContentPlaceHolderID="Head" runat="server">
@@ -77,8 +75,7 @@
         <div class="container-fluid">
             <div class="navbar-minimize">
                 <button id="minimizeSidebar" class="btn btn-fill btn-icon"><i class="fa fa-bars"></i></button>
-            </div>
-            <!-- end navbar-minimize -->
+            </div><!-- end navbar-minimize -->
 
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle">
@@ -87,9 +84,8 @@
                     <span class="icon-bar bar2"></span>
                     <span class="icon-bar bar3"></span>
                 </button>
-                <a class="navbar-brand" href="#">Administración de Estudiantes</a>
-            </div>
-            <!-- end navbar-header -->
+                <a class="navbar-brand" href="#">Administración de Profesores</a>
+            </div><!-- end navbar-header -->
 
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -103,27 +99,22 @@
                         </ul>
                     </li>
                 </ul>
-            </div>
-            <!-- end collapse navbar-collapse -->
-        </div>
-        <!-- end container-fluid -->
-    </nav>
-    <!-- end container-fluid -->
+            </div><!-- end collapse navbar-collapse -->
+        </div><!-- end container-fluid -->
+    </nav><!-- end container-fluid -->
 </asp:Content>
 
 <asp:Content ID="Content" ContentPlaceHolderID="Content" runat="server">
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Administración de Estudiantes
-                </h4>
+                <h4 class="card-title">Administración de Profesores</h4>
                 <p class="category">
-                    Seleccione el estudiante que desea administrar o bien ingrese uno nuevo
+                    Seleccione el profesor que desea administrar o bien ingrese uno nuevo
                 </p>
                 <br />
-                <button type="button" class="btn btnCreateStudent" data-toggle="modal" data-target="#CreateStudent">Ingresar estudiante</button>
-            </div>
-            <!-- end card-header -->
+                <button type="button" class="btn btnCreateStudent" data-toggle="modal" data-target="#CreateTeacher">Ingresar profesor</button>
+            </div><!-- end card-header -->
 
             <div class="card-content">
                 <table id="bootstrap-table" class="table">
@@ -604,4 +595,5 @@
 <asp:Content ID="JS" ContentPlaceHolderID="JS" runat="server">
     <script src="Scripts/AdmEstudiantes.js"></script>
 </asp:Content>
+
 
