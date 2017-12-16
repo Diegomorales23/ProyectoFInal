@@ -7,9 +7,12 @@ using System.Threading.Tasks;
 
 namespace ES.BLL.Interfaces
 {
-    public interface IParentesco
+    public interface ICursos_Profesores
     {
-        // GetInfo()
-        TB_Parentesco[] GetInfo();
+        // Insertar()
+        void Insertar(TB_Cursos_Profesores NuevaRel);
+
+        // Eliminar()
+        void Eliminar(int Id);
     }
 }

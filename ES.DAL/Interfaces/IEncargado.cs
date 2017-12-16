@@ -8,17 +8,10 @@ namespace ES.DAL.Interfaces
 {
    public interface IEncargado
     {
-        // InsertarEncargado
-        void InsertarEncargado(TB_Encargados Encargado);
-
-
-        List<Encargado> ListaEncargado();
-        // Select por PK
-        Encargado BuscarEncargado(string cedula);
-        // Update
-        void ActualizarEncargado(Encargado encargado);
-        // Delete
-        void EliminarEncargado(int idEncargado);
+        // Insertar()
+        void Insertar(TB_Encargados Encargado);
         
+        // Eliminar()
+        void Eliminar(string Id);        
     }
 }

@@ -1,4 +1,12 @@
-﻿.custom_menu_logo {
+﻿.ghost{
+    display:none;
+}
+
+.custom-btn{
+        margin-top: 11% !important;
+}
+
+.custom_menu_logo {
     height: 100px; 
     margin-left: auto; 
     margin-right: auto;

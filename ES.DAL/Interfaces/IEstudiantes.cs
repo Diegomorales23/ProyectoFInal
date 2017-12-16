@@ -4,18 +4,22 @@ namespace ES.DAL.Interfaces
 {
     public interface IEstudiantes
     {
-        // GetEstudiantesInfo()
-        TB_Estudiantes[] GetEstudiantesInfo();
+        // GetInfo()
+        TB_Estudiantes[] GetInfo();
         
-        // GetCantEstudiantes()
-        int GetCantEstudiantes();
+        // GetCant()
+        int GetCant();
 
-        void InsertarEstudiante(TB_Estudiantes Estudiante);
+        // Insertar()
+        void Insertar(TB_Estudiantes Estudiante);
 
-        void EliminarEstudiante(string IdEstudiante);
+        // Eliminar()
+        void Eliminar(string Id);
 
-        TB_Estudiantes[] BuscarEstudiante(string IdEstudiante);
+        // Buscar()
+        TB_Estudiantes[] Buscar(string Id);
 
-        void ActualizarEstudiante(TB_Estudiantes Estudiante);
+        // Actualizar()
+        void Actualizar(TB_Estudiantes Estudiante);
     }
 }

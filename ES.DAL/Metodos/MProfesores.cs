@@ -2,6 +2,7 @@
 using ES.DATA;
 using ServiceStack.OrmLite;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 
@@ -19,6 +20,46 @@ namespace ES.DAL.Metodos
             _conexion = new OrmLiteConnectionFactory(BD.Default.conexion, SqlServerDialect.Provider);
             _db = _conexion.Open();
         }
+        
+        // ListarProfesores();
+        public List<TB_Profesores> ListarProfesores()
+        {
+            return _db.Select<TB_Profesores>();
+        }
+
+        // GetId()
+        public string GetId(string NOMBRE)
+        {
+            TB_Profesores[] res_ = { };
+            var res = string.Empty;
+
+            try
+            {
+                res_ = _db.Select<TB_Profesores>().ToArray();
+                foreach (var item in res_)
+                {
+                    if ((_herra.Decrypt(item.NOMBRE) + " " + _herra.Decrypt(item.APELLIDOS)) == NOMBRE.ToUpper())
+                    {
+                        res = item.ID_PROFESOR;
+                    }                    
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\nError \nUbicación: Capa DAL -> MProfesores -> GetId(). \nDescripción: " + ex.Message);
+            }
+            return res;
+        }
+
+
+
+
+
+
+
+
+
+
 
         // GetInfo()
         public TB_Profesores[] GetInfo()

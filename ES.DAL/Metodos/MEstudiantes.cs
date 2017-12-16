@@ -11,17 +11,17 @@ namespace ES.DAL.Metodos
     {
         private OrmLiteConnectionFactory _conexion;
         private IDbConnection _db;
-        private IHerramientas _herra;
+        IHerramientas herra;
 
         public MEstudiantes()
         {
-            _herra = new MHerramientas();
+            herra = new MHerramientas();
             _conexion = new OrmLiteConnectionFactory(BD.Default.conexion, SqlServerDialect.Provider);
             _db = _conexion.Open();
         }
 
-        // GetEstudiantesInfo()
-        public TB_Estudiantes[] GetEstudiantesInfo()
+        // GetInfo()
+        public TB_Estudiantes[] GetInfo()
         {
             TB_Estudiantes[] res = { };
 
@@ -31,13 +31,13 @@ namespace ES.DAL.Metodos
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("\nError \nUbicación: Capa DAL -> MEstudiantes -> GetEstudiantesInfo(). \nDescripción: " + ex.Message);
+                Debug.WriteLine("\nError \nUbicación: Capa DAL -> MEstudiantes -> GetInfo(). \nDescripción: " + ex.Message);
             }
             return res;
         }
         
-        // GetCantEstudiantes()
-        public int GetCantEstudiantes()
+        // GetCant()
+        public int GetCant()
         {
             var res = 0;
 
@@ -47,40 +47,43 @@ namespace ES.DAL.Metodos
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("\nError \nUbicación: Capa DAL -> MEstudiantes -> GetCantEstudiantes(). \nDescripción: " + ex.Message);
+                Debug.WriteLine("\nError \nUbicación: Capa DAL -> MEstudiantes -> GetCant(). \nDescripción: " + ex.Message);
             }
             return res;
         }
-
-        public void InsertarEstudiante(TB_Estudiantes Estudiante)
+        
+        // Insertar()
+        public void Insertar(TB_Estudiantes Estudiante)
         {
             _db.Insert(Estudiante);
         }
 
-        public void EliminarEstudiante(string IdEstudiante)
+        // Eliminar()
+        public void Eliminar(string Id)
         {
-            _db.Delete<TB_Estudiantes>(x => x.ID_ESTUDIANTE == IdEstudiante);
+            _db.Delete<TB_Estudiantes>(x => x.ID_ESTUDIANTE == Id);
         }
 
-        public TB_Estudiantes[] BuscarEstudiante(string IdEstudiante)
+        // Buscar()
+        public TB_Estudiantes[] Buscar(string Id)
         {
             TB_Estudiantes[] res = { };
 
             try
             {
-                res = _db.Select<TB_Estudiantes>(x => x.ID_ESTUDIANTE == IdEstudiante).ToArray();
+                res = _db.Select<TB_Estudiantes>(x => x.ID_ESTUDIANTE == Id).ToArray();
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("\nError \nUbicación: Capa DAL -> MEstudiantes -> GetEstudiantesInfo(). \nDescripción: " + ex.Message);
+                Debug.WriteLine("\nError \nUbicación: Capa DAL -> MEstudiantes -> Buscar(). \nDescripción: " + ex.Message);
             }
             return res;
         }
 
-        public void ActualizarEstudiante(TB_Estudiantes Estudiante)
+        // Actualizar()
+        public void Actualizar(TB_Estudiantes Estudiante)
         {
             _db.Update(Estudiante);
-        }//
-
+        }       
     }
 }

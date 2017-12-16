@@ -4,20 +4,22 @@ namespace ES.BLL.Interfaces
 {
     public interface IEstudiantes
     {
-        // GetEstudiantesInfo()
-        TB_Estudiantes[] GetEstudiantesInfo();
+        // GetInfo()
+        TB_Estudiantes[] GetInfo();
+        
+        // GetCant()
+        int GetCant();
+        
+        // Insertar()
+        void Insertar(TB_Estudiantes Estudiante);
 
+        // Eliminar()
+        void Eliminar(string Id);
 
-        // GetCantEstudiantes()
-        int GetCantEstudiantes();
+        // Buscar()
+        TB_Estudiantes[] Buscar(string Id);
 
-
-        void InsertarEstudiante(TB_Estudiantes Estudiante);
-
-        void EliminarEstudiante(string IdEstudiante);
-
-        TB_Estudiantes[] BuscarEstudiante(string IdEstudiante);
-
-        void ActualizarEstudiante(TB_Estudiantes Estudiante);
+        // Actualizar()
+        void Actualizar(TB_Estudiantes Estudiante);
     }
 }

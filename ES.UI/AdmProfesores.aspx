@@ -60,6 +60,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="AdmCursos.aspx">
+                        <i class="fa fa-sliders"></i>
+                        <p>Adm Cursos</p>
+                    </a>
+                </li>
+                <li>
                     <a href="Herramientas.aspx">
                         <i class="fa fa-wrench"></i>
                         <p>Herramientas</p>

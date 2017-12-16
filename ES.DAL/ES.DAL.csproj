@@ -60,31 +60,29 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>BD.settings</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IAlumnos.cs" />
+    <Compile Include="Interfaces\ICursos.cs" />
+    <Compile Include="Interfaces\ICursos_Profesores.cs" />
+    <Compile Include="Interfaces\INiveles.cs" />
     <Compile Include="Interfaces\INotas.cs" />
     <Compile Include="Interfaces\IEncargado.cs" />
     <Compile Include="Interfaces\IEstudiantes.cs" />
-    <Compile Include="Interfaces\IGrupo.cs" />
-    <Compile Include="Interfaces\IGrupo_Alumnos.cs" />
-    <Compile Include="Interfaces\IGrupo_Profesor.cs" />
     <Compile Include="Interfaces\IHerramientas.cs" />
     <Compile Include="Interfaces\IMaterias.cs" />
     <Compile Include="Interfaces\IParentesco.cs" />
     <Compile Include="Interfaces\IProfesores.cs" />
-    <Compile Include="Interfaces\IRoles.cs" />
+    <Compile Include="Interfaces\ISecciones.cs" />
     <Compile Include="Interfaces\IUsuarios.cs" />
-    <Compile Include="Metodos\MAlumnos.cs" />
+    <Compile Include="Metodos\MCursos.cs" />
+    <Compile Include="Metodos\MCursos_Profesores.cs" />
+    <Compile Include="Metodos\MNiveles.cs" />
     <Compile Include="Metodos\MNotas.cs" />
     <Compile Include="Metodos\MEncargado.cs" />
     <Compile Include="Metodos\MEstudiantes.cs" />
-    <Compile Include="Metodos\MGrupo.cs" />
-    <Compile Include="Metodos\MGrupo_Alumnos.cs" />
-    <Compile Include="Metodos\MGrupo_Profesor.cs" />
     <Compile Include="Metodos\MHerramientas.cs" />
     <Compile Include="Metodos\MMaterias.cs" />
     <Compile Include="Metodos\MParentesco.cs" />
     <Compile Include="Metodos\MProfesores.cs" />
-    <Compile Include="Metodos\Mroles.cs" />
+    <Compile Include="Metodos\MSecciones.cs" />
     <Compile Include="Metodos\MUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

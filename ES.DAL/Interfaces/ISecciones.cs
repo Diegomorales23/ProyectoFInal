@@ -2,9 +2,9 @@
 
 namespace ES.DAL.Interfaces
 {
-    public interface IParentesco
+    public interface ISecciones
     {
         // GetInfo()
-        TB_Parentesco[] GetInfo();
+        TB_Secciones[] GetInfo();
     }
 }

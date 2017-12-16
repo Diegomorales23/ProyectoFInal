@@ -110,10 +110,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdmCursos.aspx" />
     <Content Include="AdmEstudiantes.aspx" />
     <Content Include="AdmProfesores.aspx" />
-    <Content Include="BuscarEncargado.aspx" />
-    <Content Include="BuscarMaterias.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -127,10 +126,7 @@
     <Content Include="Content\form-wizard-teal.css" />
     <Content Include="Content\switcher.css" />
     <Content Include="Content\themify-icons.css" />
-    <Content Include="CrearMaterias.aspx" />
     <Content Include="DB.html" />
-    <Content Include="EditarEncargado.aspx" />
-    <Content Include="EditarMaterias.aspx" />
     <Content Include="EmailTemplate.html" />
     <Content Include="fonts\font-awesome.css" />
     <Content Include="fonts\font-awesome.min.css" />
@@ -144,8 +140,6 @@
     <Content Include="images\logo.png" />
     <Content Include="images\profile.png" />
     <Content Include="Index.aspx" />
-    <Content Include="InsertarCalificaciones.aspx" />
-    <Content Include="InsertarEncargado.aspx" />
     <Content Include="MyProfile.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -153,6 +147,7 @@
     </Content>
     <Content Include="Login.Master" />
     <Content Include="ResetPassword.aspx" />
+    <Content Include="Scripts\AdmCursos.js" />
     <Content Include="Scripts\AdmEstudiantes.js" />
     <Content Include="Scripts\AdmProfesores.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
@@ -211,6 +206,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdmCursos.aspx.cs">
+      <DependentUpon>AdmCursos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdmCursos.aspx.designer.cs">
+      <DependentUpon>AdmCursos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdmEstudiantes.aspx.cs">
       <DependentUpon>AdmEstudiantes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -224,40 +226,6 @@
     </Compile>
     <Compile Include="AdmProfesores.aspx.designer.cs">
       <DependentUpon>AdmProfesores.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="BuscarEncargado.aspx.cs">
-      <DependentUpon>BuscarEncargado.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BuscarEncargado.aspx.designer.cs">
-      <DependentUpon>BuscarEncargado.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="BuscarMaterias.aspx.cs">
-      <DependentUpon>BuscarMaterias.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="BuscarMaterias.aspx.designer.cs">
-      <DependentUpon>BuscarMaterias.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CrearMaterias.aspx.cs">
-      <DependentUpon>CrearMaterias.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CrearMaterias.aspx.designer.cs">
-      <DependentUpon>CrearMaterias.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EditarEncargado.aspx.cs">
-      <DependentUpon>EditarEncargado.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EditarEncargado.aspx.designer.cs">
-      <DependentUpon>EditarEncargado.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EditarMaterias.aspx.cs">
-      <DependentUpon>EditarMaterias.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EditarMaterias.aspx.designer.cs">
-      <DependentUpon>EditarMaterias.aspx</DependentUpon>
     </Compile>
     <Compile Include="ForgotPassword.aspx.cs">
       <DependentUpon>ForgotPassword.aspx</DependentUpon>
@@ -279,19 +247,6 @@
     </Compile>
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="InsertarCalificaciones.aspx.cs">
-      <DependentUpon>InsertarCalificaciones.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="InsertarCalificaciones.aspx.designer.cs">
-      <DependentUpon>InsertarCalificaciones.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="InsertarEncargado.aspx.cs">
-      <DependentUpon>InsertarEncargado.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="InsertarEncargado.aspx.designer.cs">
-      <DependentUpon>InsertarEncargado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

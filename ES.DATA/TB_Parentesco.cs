@@ -2,7 +2,7 @@
 {
     public class TB_Parentesco
     {
-        public string ID_PARENTESCO { get; set; }
+        public int ID_PARENTESCO { get; set; }
 
         public string NOMBRE { get; set; }
     }

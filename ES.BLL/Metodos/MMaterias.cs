@@ -1,43 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using ES.BLL.Interfaces;
 using ES.DATA;
 namespace ES.BLL.Metodos
 {
     public class MMaterias : IMaterias
     {
-        private DAL.Interfaces.IMaterias mate;
+        DAL.Interfaces.IMaterias mat;
+
         public MMaterias()
         {
-            mate = new DAL.Metodos.MMaterias();
+            mat = new DAL.Metodos.MMaterias();
         }
 
-        public void ActualizarMaterias(Materias materias)
+        // ListarMaterias();
+        public List<TB_Materias> ListarMaterias()
         {
-            mate.ActualizarMaterias(materias);
+           return mat.ListarMaterias();
         }
 
-        public Materias BuscarMaterias(int idmaterias)
+        // GetId()
+        public int GetId(string NOMBRE)
         {
-            return mate.BuscarMaterias(idmaterias);
-        }
-
-        public void EliminarMaterias(int materias)
-        {
-            mate.EliminarMaterias(materias);
-        }
-
-        public void InsertarMaterias(Materias materias)
-        {
-            mate.InsertarMaterias(materias);
-        }
-
-        public List<Materias> ListarMaterias()
-        {
-           return mate.ListarMaterias();
+            return mat.GetId(NOMBRE);
         }
     }
 }

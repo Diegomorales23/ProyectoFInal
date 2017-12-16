@@ -2,10 +2,10 @@
 
 namespace ES.DATA
 {
-    public class TB_Niveles
+    public class TB_Materias
     {
         [AutoIncrement]
-        public int ID_NIVEL { get; set; }
+        public int ID_MATERIA { get; set; }
 
         public string NOMBRE { get; set; }
     }

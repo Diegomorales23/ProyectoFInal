@@ -1,5 +1,6 @@
 ﻿using ES.BLL.Interfaces;
 using ES.DATA;
+using System.Collections.Generic;
 
 namespace ES.BLL.Metodos
 {
@@ -10,7 +11,22 @@ namespace ES.BLL.Metodos
         {
             _profe = new DAL.Metodos.MProfesores();
         }
-        
+
+        // ListarProfesores();
+        public List<TB_Profesores> ListarProfesores()
+        {
+            return _profe.ListarProfesores();
+        }
+
+        // GetId()
+        public string GetId(string NOMBRE)
+        {
+            return _profe.GetId(NOMBRE);
+        }
+
+
+
+
         // GetInfo()
         public TB_Profesores[] GetInfo()
         {

@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using ES.DATA;
 
 namespace ES.DAL.Interfaces
 {
-  public interface IMaterias
+    public interface IMaterias
     {
-        List<Materias> ListarMaterias();
-        Materias BuscarMaterias(int idmaterias);
-        //INSERT
-        void InsertarMaterias(Materias materias);
-        //UPDATE
-        void ActualizarMaterias(Materias materias);
-        //DELETE
-        void EliminarMaterias(int materias);
+        // ListarMaterias();
+        List<TB_Materias> ListarMaterias();
+
+        // GetId()
+        int GetId(string NOMBRE);
     }
 }

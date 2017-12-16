@@ -11,31 +11,31 @@ using System.Threading.Tasks;
 
 namespace ES.DAL.Metodos
 {
-    public class MParentesco : IParentesco
+    public class MSecciones : ISecciones
     {
         private OrmLiteConnectionFactory _conexion;
         private IDbConnection _db;
         IHerramientas herra;
 
-        public MParentesco()
+        public MSecciones()
         {
             herra = new MHerramientas();
             _conexion = new OrmLiteConnectionFactory(BD.Default.conexion, SqlServerDialect.Provider);
             _db = _conexion.Open();
         }
-        
+
         // GetInfo()
-        public TB_Parentesco[] GetInfo()
+        public TB_Secciones[] GetInfo()
         {
-            TB_Parentesco[] res = { };
+            TB_Secciones[] res = { };
 
             try
             {
-                res = _db.Select<TB_Parentesco>().ToArray();
+                res = _db.Select<TB_Secciones>().ToArray();
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("\nError \nUbicación: Capa DAL -> MParentesco -> GetInfo(). \nDescripción: " + ex.Message);
+                Debug.WriteLine("\nError \nUbicación: Capa DAL -> MSecciones -> GetInfo(). \nDescripción: " + ex.Message);
             }
             return res;
         }

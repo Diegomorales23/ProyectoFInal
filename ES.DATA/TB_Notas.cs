@@ -1,4 +1,5 @@
 ﻿using ServiceStack.DataAnnotations;
+using System;
 
 namespace ES.DATA
 {
@@ -9,20 +10,22 @@ namespace ES.DATA
 
         public string ID_ESTUDIANTE { get; set; }
 
-        public string ID_MATERIA { get; set; }
+        public int ID_CURSO { get; set; }
 
-        public int PRIMER_PERIODO { get; set; }
+        public int? PRIMER_PERIODO { get; set; }
 
-        public int SEGUNDO_PERIODO { get; set; }
+        public int? SEGUNDO_PERIODO { get; set; }
 
-        public int TERCER_PERIODO { get; set; }
+        public int? TERCER_PERIODO { get; set; }
 
-        public int CONVOCATORIA_I { get; set; }
+        public int? CONVOCATORIA_I { get; set; }
 
-        public int CONVOCATORIA_II { get; set; }
+        public int? CONVOCATORIA_II { get; set; }
 
-        public int CONVOCATORIA_III { get; set; }
+        public int? CONVOCATORIA_III { get; set; }
 
-        public int PROMEDIO { get; set; }
+        public int? PROMEDIO { get; set; }
+
+        public DateTime? PROMOCION { get; set; }
     }
 }

@@ -5,44 +5,47 @@ namespace ES.BLL.Metodos
 {
     public class MEstudiantes : IEstudiantes
     {
-        private DAL.Interfaces.IEstudiantes _est;
+        DAL.Interfaces.IEstudiantes est;
+
         public MEstudiantes()
         {
-            _est = new DAL.Metodos.MEstudiantes();
+            est = new DAL.Metodos.MEstudiantes();
         }
 
-        // GetEstudiantesInfo()
-        public TB_Estudiantes[] GetEstudiantesInfo()
+        // GetInfo()
+        public TB_Estudiantes[] GetInfo()
         {
-            return _est.GetEstudiantesInfo();
-        }
-
-
-        // GetCantEstudiantes()
-        public int GetCantEstudiantes()
-        {
-            return _est.GetCantEstudiantes();
+            return est.GetInfo();
         }
         
-        public void InsertarEstudiante(TB_Estudiantes Estudiante)
+        // GetCant()
+        public int GetCant()
         {
-            _est.InsertarEstudiante(Estudiante);
+            return est.GetCant();
+        }
+        
+        // Insertar()
+        public void Insertar(TB_Estudiantes Estudiante)
+        {
+            est.Insertar(Estudiante);
         }
 
-        public void EliminarEstudiante(string IdEstudiante)
+        // Eliminar()
+        public void Eliminar(string Id)
         {
-            _est.EliminarEstudiante(IdEstudiante);
+            est.Eliminar(Id);
         }
 
-        public TB_Estudiantes[] BuscarEstudiante(string IdEstudiante)
+        // Buscar()
+        public TB_Estudiantes[] Buscar(string Id)
         {
-            return _est.BuscarEstudiante(IdEstudiante);
+            return est.Buscar(Id);
         }
 
-        public void ActualizarEstudiante(TB_Estudiantes Estudiante)
+        // Actualizar()
+        public void Actualizar(TB_Estudiantes Estudiante)
         {
-            _est.ActualizarEstudiante(Estudiante);
+            est.Actualizar(Estudiante);
         }
-
     }
 }

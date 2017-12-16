@@ -8,16 +8,10 @@ namespace ES.BLL.Interfaces
 {
   public interface IEncargado
     {
-        // InsertarEncargado
-        void InsertarEncargado(TB_Encargados Encargado);
+        // Insertar()
+        void Insertar(TB_Encargados Encargado);
 
-
-        List<Encargado> ListaEncargado();
-        // Select por PK
-        Encargado BuscarEncargado(string cedula);
-        // Update
-        void ActualizarEncargado(Encargado encargado);
-        // Delete
-        void EliminarEncargado(int idEncargado);
+        // Eliminar()
+        void Eliminar(string Id);
     }
 }

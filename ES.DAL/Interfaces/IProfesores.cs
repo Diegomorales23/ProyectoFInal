@@ -1,8 +1,20 @@
 ﻿using ES.DATA;
+using System.Collections.Generic;
+
 namespace ES.DAL.Interfaces
 {
     public interface IProfesores
     {
+        // ListarProfesores();
+        List<TB_Profesores> ListarProfesores();
+
+        // GetId()
+        string GetId(string NOMBRE);
+
+
+
+
+
         // GetInfo()
         TB_Profesores[] GetInfo();
         

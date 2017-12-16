@@ -1,4 +1,5 @@
 ﻿using ES.BLL.Interfaces;
+using ES.DATA;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +10,16 @@ namespace ES.BLL.Metodos
 {
     public class MParentesco : IParentesco
     {
-        private DAL.Interfaces.IParentesco _par;
+        DAL.Interfaces.IParentesco par;
         public MParentesco()
         {
-            _par = new DAL.Metodos.MParentesco();
+            par = new DAL.Metodos.MParentesco();
         }
 
-        // GetIdParentesco()
-        public string GetIdParentesco(string Parentesco)
+        // GetInfo()
+        public TB_Parentesco[] GetInfo()
         {
-            return _par.GetIdParentesco(Parentesco);
+            return par.GetInfo();
         }
     }
 }

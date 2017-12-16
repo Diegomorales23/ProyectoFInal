@@ -1,49 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using ES.DAL.Interfaces;
 using ES.DATA;
 using ServiceStack.OrmLite;
 using System.Data;
+using System;
+using System.Diagnostics;
 
 namespace ES.DAL.Metodos
 {
     public class MMaterias : IMaterias
     {
-
-        private OrmLiteConnectionFactory _conexion;
-        private IDbConnection _db;
+        OrmLiteConnectionFactory _conexion;
+        IDbConnection _db;
 
         public MMaterias()
         {
             _conexion = new OrmLiteConnectionFactory(BD.Default.conexion, SqlServerDialect.Provider);
             _db = _conexion.Open();
         }
-        public void ActualizarMaterias(Materias materias)
+
+        // ListarMaterias();
+        public List<TB_Materias> ListarMaterias()
         {
-            _db.Update(materias);
+            return _db.Select<TB_Materias>();
         }
 
-        public Materias BuscarMaterias(int idmaterias)
+        // GetId()
+        public int GetId(string NOMBRE)
         {
-            return _db.Select<Materias>(x => x.IdMateria == idmaterias).FirstOrDefault();
-        }
+            TB_Materias[] res_ = { };
+            var res = 0;
 
-        public void EliminarMaterias(int materias)
-        {
-            _db.Delete<Materias>(x => x.IdMateria == materias);
-        }
-
-        public void InsertarMaterias(Materias materias)
-        {
-            _db.Insert(materias);
-        }
-
-        public List<Materias> ListarMaterias()
-        {
-            return _db.Select<Materias>();
+            try
+            {
+                res_ = _db.Select<TB_Materias>(x => x.NOMBRE == NOMBRE).ToArray();
+                res = res_[0].ID_MATERIA;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\nError \nUbicación: Capa DAL -> MMaterias -> GetId(). \nDescripción: " + ex.Message);
+            }
+            return res;
         }
     }
 }

@@ -2,179 +2,210 @@
 using ES.BLL.Metodos;
 using ES.DATA;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Web;
 using System.Web.Services;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace ES.UI
 {
     public partial class AdmEstudiantes : System.Web.UI.Page
     {
-        private static IEstudiantes _est;
-        private static IEncargado _enc;
-        private static IParentesco _par;
-        private static INotas _cal;
-
-        private static IHerramientas _herra;
+        static IEstudiantes est;
+        static IEncargado enc;
+        static IParentesco par;
+        static INotas cal;
+        static IHerramientas herra;
+        static ISecciones sec;
+        static INiveles niv;
 
         public AdmEstudiantes()
         {
-            _est = new MEstudiantes();
-            _enc = new MEncargado();
-            _herra = new MHerramientas();
-            _par = new MParentesco();
-            _cal = new MNotas();
+            est = new MEstudiantes();
+            enc = new MEncargado();
+            herra = new MHerramientas();
+            par = new MParentesco();
+            cal = new MNotas();
+            sec = new MSecciones();
+            niv = new MNiveles();
         }
 
         protected void Page_Load(object sender, EventArgs e) { }
 
         protected void MostrarEstudiantes()
         {
-            var res = _est.GetEstudiantesInfo();
-            for (int i = 0; i < _est.GetCantEstudiantes(); i++)
+            var res = est.GetInfo();
+            for (int i = 0; i < est.GetCant(); i++)
             {
-                var table = string.Format("<tr> <td>{0}</td> <td>{1}</td> <td>{2}</td> <td>{3}</td> <td></td> </tr>", res[i].ID_ESTUDIANTE, _herra.CapitalizeByWord(_herra.Decrypt(res[i].NOMBRE) + " " + _herra.Decrypt(res[i].APELLIDOS)), _herra.Decrypt(res[i].SECCION), _herra.Decrypt(res[i].TELEFONO));
+                var table = string.Format("<tr> <td>{0}</td> <td>{1}</td> <td>{2}</td> <td>{3}</td> <td></td> </tr>", herra.Decrypt(res[i].ID_ESTUDIANTE), herra.CapitalizeByWord(herra.Decrypt(res[i].NOMBRE) + " " + herra.Decrypt(res[i].APELLIDOS)), res[i].ID_SECCION, herra.Decrypt(res[i].TELEFONO));
                 Response.Write(table);
             }
         }
 
         [WebMethod]
-        public static void IngresarEstudiante(string E_Cedula, string E_Nombre, string E_Apellidos, string E_Telefono, string E_Email, string E_Direccion, string E_Padecimientos, string E_Grado, string E_Adelanta, string E_GradoAdelanta, string EN_Cedula, string EN_Nombre, string EN_Apellidos, string EN_TelRes, string EN_TelTra, string EN_TelMov, string EN_Parentesco, string EN_LugarTra, string EN_Ocupacion)
+        public static TB_Secciones[] GetSecciones()
         {
+           return sec.GetInfo();
+        }
 
-            var ID_Parentesco = _par.GetIdParentesco(EN_Parentesco.ToUpper());
+        [WebMethod]
+        public static TB_Niveles[] GetNiveles()
+        {
+            return niv.GetInfo();
+        }
+
+        [WebMethod]
+        public static TB_Parentesco[] GetParentesco()
+        {
+            return par.GetInfo();
+        }
+        
+        [WebMethod]
+        public static void Ingresar(string E_Cedula, string E_Nombre, string E_Apellidos, string E_Telefono, string E_Email, string E_Direccion, string E_Padecimientos, string E_Nivel, string E_Seccion, string EN_Cedula, string EN_Nombre, string EN_Apellidos,string EN_Email, string EN_TelefonoRes, string EN_TelefonoTra, string EN_TelefonoMov, string EN_Direccion, string EN_Parentesco, string EN_Lugar, string EN_Ocupacion)
+        {
+            if (EN_TelefonoRes == string.Empty)
+            {
+                EN_TelefonoRes = "No posee";
+            }
+
+            if (EN_TelefonoTra == string.Empty)
+            {
+                EN_TelefonoTra = "No posee";
+            }
+
+            if (EN_TelefonoMov == string.Empty)
+            {
+                EN_TelefonoRes = "No posee";
+            }
+
+            if (EN_Email == string.Empty)
+            {
+                EN_Email = "No posee";
+            }
+
+            if (EN_Lugar == string.Empty)
+            {
+                EN_Lugar = "No posee";
+            }
+
+            if (EN_Ocupacion == string.Empty)
+            {
+                EN_Ocupacion = "No aplica";
+            }
 
             var Encargado = new TB_Encargados
             {
-                ID_ENCARGADO = EN_Cedula,
-                NOMBRE = _herra.Encrypt(EN_Nombre),
-                APELLIDOS = _herra.Encrypt(EN_Apellidos),
-                TEL_RESIDENCIA = _herra.Encrypt(EN_TelRes),
-                TEL_TRABAJO = _herra.Encrypt(EN_TelTra),
-                TEL_MOVIL = _herra.Encrypt(EN_TelMov),
-                ID_PARENTESCO = ID_Parentesco,
-                LUGAR_TRABAJO = _herra.Encrypt(EN_LugarTra),
-                OCUPACION = _herra.Encrypt(EN_Ocupacion),
+                ID_ENCARGADO = herra.Encrypt(EN_Cedula),
+                NOMBRE = herra.Encrypt(EN_Nombre.ToUpper()),
+                APELLIDOS = herra.Encrypt(EN_Apellidos.ToUpper()),
+                EMAIL = herra.Encrypt(EN_Email.ToUpper()),
+                TEL_RESIDENCIA = herra.Encrypt(EN_TelefonoRes),
+                TEL_TRABAJO = herra.Encrypt(EN_TelefonoTra),
+                TEL_MOVIL = herra.Encrypt(EN_TelefonoMov),
+                ID_PARENTESCO = Convert.ToInt32(EN_Parentesco),
+                
+                LUGAR_TRABAJO = herra.Encrypt(EN_Lugar.ToUpper()),
+                OCUPACION = herra.Encrypt(EN_Ocupacion.ToUpper())                
             };
 
-            _enc.InsertarEncargado(Encargado);
+            enc.Insertar(Encargado);
 
-            for (int i = 0; i < 15; i++)
+            if (E_Email == string.Empty)
             {
-                var Notas = new TB_Notas
-                {
-                    ID_ESTUDIANTE = E_Cedula,
-                    ID_MATERIA = i.ToString(),
-                    PRIMER_PERIODO = 0,
-                    SEGUNDO_PERIODO = 0,
-                    TERCER_PERIODO = 0,
-                    CONVOCATORIA_I = 0,
-                    CONVOCATORIA_II = 0,
-                    CONVOCATORIA_III = 0,
-                    PROMEDIO = 0
-                };
-
-                _cal.CrearNotasEst(Notas);
+                E_Email = "No posee";
             }
 
-            var Adelanta = false;
-            if (E_Adelanta == "Si")
+            if (E_Padecimientos == string.Empty)
             {
-                Adelanta = true;
+                E_Padecimientos = "No posee";
             }
-            else
-            {
-                Adelanta = false;
-            }
-
+            
             var Estudiante = new TB_Estudiantes
             {
-                ID_ESTUDIANTE = E_Cedula,
-                ID_ENCARGADO = EN_Cedula,
-                NOMBRE = _herra.Encrypt(E_Nombre),
-                APELLIDOS = _herra.Encrypt(E_Apellidos),
-                TELEFONO = _herra.Encrypt(E_Telefono),
-                EMAIL = _herra.Encrypt(E_Email),
-                PADECIMIENTOS = _herra.Encrypt(E_Padecimientos),
-                DIRECCION = _herra.Encrypt(E_Direccion),
-                GRADUADO = false,
+                ID_ESTUDIANTE = herra.Encrypt(E_Cedula),
+                ID_SECCION = E_Seccion,
+                ID_ENCARGADO = herra.Encrypt(EN_Cedula),
+                ID_NIVEL = Convert.ToInt32(E_Nivel),
+                NOMBRE = herra.Encrypt(E_Nombre.ToUpper()),
+                APELLIDOS = herra.Encrypt(E_Apellidos.ToUpper()),
+                TELEFONO = herra.Encrypt(E_Telefono),
+                EMAIL = herra.Encrypt(E_Email.ToUpper()),
+                DIRECCION = herra.Encrypt(E_Direccion.ToUpper()),
+                PADECIMIENTOS = herra.Encrypt(E_Padecimientos.ToUpper()),
                 ABANDONO = false,
-                ANO_GRADUACION = "null",
-                ID_NIVEL = "1",
-                SECCION = _herra.Encrypt("7-1"),
-                ADELANTA = Adelanta,
-                NIVEL_ADELANTA = _herra.Encrypt(E_GradoAdelanta)
+                ANO_GRADUACION = herra.Encrypt("0"),
+                GRADUADO = false
             };
 
-            _est.InsertarEstudiante(Estudiante);
+            est.Insertar(Estudiante);
         }
-
+        
         [WebMethod]
-        public static void EliminarEstudiante(string IdEstudiante)
+        public static void Eliminar(string Id)
         {
-            _est.EliminarEstudiante(IdEstudiante);
+            Id = herra.Encrypt(Id);
+            var res = est.Buscar(Id);
+
+            est.Eliminar(Id);
+            enc.Eliminar(res[0].ID_ENCARGADO);
         }
-
+        
         [WebMethod]
-        public static TB_Estudiantes[] GetInfoEstudiante(string IdEstudiante)
+        public static TB_Estudiantes[] GetInfo(string Id)
         {
-            var res = _est.BuscarEstudiante(IdEstudiante);
+            Id = herra.Encrypt(Id);
+            var res = est.Buscar(Id);
 
-            res[0].NOMBRE = _herra.CapitalizeByWord(_herra.Decrypt(res[0].NOMBRE));
-            res[0].APELLIDOS = _herra.CapitalizeByWord(_herra.Decrypt(res[0].APELLIDOS));
-            res[0].TELEFONO = _herra.Decrypt(res[0].TELEFONO);
-            res[0].EMAIL = _herra.Decrypt(res[0].EMAIL).ToLower();
-            res[0].PADECIMIENTOS = _herra.Capitalize(_herra.Decrypt(res[0].PADECIMIENTOS));
-            res[0].DIRECCION = _herra.Capitalize(_herra.Decrypt(res[0].DIRECCION));
+            res[0].ID_ESTUDIANTE = herra.Decrypt(res[0].ID_ESTUDIANTE);
+            res[0].NOMBRE = herra.CapitalizeByWord(herra.Decrypt(res[0].NOMBRE));
+            res[0].APELLIDOS = herra.CapitalizeByWord(herra.Decrypt(res[0].APELLIDOS));
+            res[0].TELEFONO = herra.Decrypt(res[0].TELEFONO);
+            res[0].EMAIL = herra.Decrypt(res[0].EMAIL).ToLower();
+            res[0].PADECIMIENTOS = herra.Capitalize(herra.Decrypt(res[0].PADECIMIENTOS));
+            res[0].DIRECCION = herra.Capitalize(herra.Decrypt(res[0].DIRECCION));
+            res[0].ANO_GRADUACION = herra.Decrypt(res[0].ANO_GRADUACION);
 
             return res;
         }
-
+        
         [WebMethod]
-        public static void ActualizarEstudiante(string Cedula, string Nombre, string Apellidos, string Telefono, string Email, string Graduado, string Abandono, string AnoGraduacion, string Grado, string Seccion, string Adelanta, string Padecimientos, string Direccion)
+        public static void Actualizar(string U_Cedula, string U_Nombre, string U_Apellidos, string U_Telefono, string U_Email, string U_Graduado, string U_Abandono, string U_AnoGraduacion, string U_Grado, string U_Seccion, string U_Padecimientos, string U_Direccion)
         {
-            var Graduado_ = false;
             var Abandono_ = false;
-            var Adelanta_ = false;
+            var Graduado_ = false;
+            var Encargado_ = string.Empty;
 
-            if (Graduado == "true")
-            {
-                Graduado_ = true;
-            }
+            Debug.WriteLine(U_Abandono);
+            Debug.WriteLine(U_Graduado);
 
-            if (Abandono == "true")
+            if (U_Abandono == "2")
             {
                 Abandono_ = true;
             }
 
-            if (Adelanta == "true")
+            if (U_Graduado == "2")
             {
-                Adelanta_ = true;
+                Graduado_ = true;
             }
+
+            Encargado_ = est.Buscar(herra.Encrypt(U_Cedula))[0].ID_ENCARGADO;
 
             var Estudiante = new TB_Estudiantes
             {
-                ID_ENCARGADO = "112345678",
-                ID_ESTUDIANTE = Cedula,
-                NOMBRE = Nombre,
-                APELLIDOS = Apellidos,
-                TELEFONO = Telefono,
-                EMAIL = Email,
-                GRADUADO = Graduado_,
+                ID_ESTUDIANTE = herra.Encrypt(U_Cedula),
+                ID_ENCARGADO = Encargado_,
+                ID_SECCION = U_Seccion,
+                ID_NIVEL = Convert.ToInt32(U_Grado),
+                NOMBRE = herra.Encrypt(U_Nombre.ToUpper()),
+                APELLIDOS = herra.Encrypt(U_Apellidos.ToUpper()),
+                TELEFONO = herra.Encrypt(U_Telefono),
+                EMAIL = herra.Encrypt(U_Email.ToUpper()),
+                DIRECCION = herra.Encrypt(U_Direccion.ToUpper()),
+                PADECIMIENTOS = herra.Encrypt(U_Padecimientos.ToUpper()),
                 ABANDONO = Abandono_,
-                ANO_GRADUACION = AnoGraduacion,
-                ID_NIVEL = Grado,
-                SECCION = Seccion,
-                ADELANTA = Adelanta_,
-                PADECIMIENTOS = Padecimientos,
-                DIRECCION = Direccion
-            }; 
+                ANO_GRADUACION = herra.Encrypt(U_AnoGraduacion),
+                GRADUADO = Graduado_
+            };
 
-            _est.ActualizarEstudiante(Estudiante);
+            est.Actualizar(Estudiante);
         }
     }
 }
