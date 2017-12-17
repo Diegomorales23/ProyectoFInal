@@ -1,63 +1,83 @@
-﻿#Storing elements  
-number = operator = prevVal = curVal = keyVal = null
-screen         = $('#value')
-showOperator   = $('#currentOperator')
-newInput       = true
-  
-$ ->  
-  calculate = () ->
-    saveCurVal = curVal
-switch operator
-  when "+" then curVal = parseInt(prevVal, 10) + parseInt(curVal, 10)
-  when "−" then curVal = parseInt(prevVal, 10) - parseInt(curVal, 10)
-  when "×" then curVal = parseInt(prevVal, 10) * parseInt(curVal, 10)
-  when "÷" then curVal = parseInt(prevVal, 10) / parseInt(curVal, 10)
-    
-prevVal = saveCurVal
-screen.val(curVal)
-keyVal = null
-  
-debug = () ->
-$('#key').text(keyVal)
-$('#current').text(curVal)
-$('#previous').text(prevVal)
-$('#operator').text(operator)
-$('#newInput').text(newInput)
-    
-          
-pushNumber =  $('[data-num]').click ->         
-keyVal = $(this).data('num')
+﻿
 
-if newInput
-  if curVal 
-    prevVal = screen.val()
-  screen.val(keyVal)
-  newInput = false
-else
-  screen.val(screen.val() + keyVal)
-curVal = screen.val()      
-debug()
-      
-pushOperator = $('[data-operator]').click ->
-if prevVal and !newInput
-  calculate() 
-newInput = true
-    
-operator = $(this).data('operator')
-showOperator.text(operator)
-debug()
-      
-pushEquals = $('[data-equals]').click ->
-calculate()
-showOperator.empty()
-newInput = true
-    
-pushClear = $('#clear').click ->
-prevVal = curVal = operator = null
-newInput = true
-showOperator.empty()
-screen.val(0)
-          
-pushNegative = $('#neg').click ->
-curVal = 0 - parseInt(curVal, 10)
-screen.val(curVal)
+$(document).ready(function () {
+
+    // scope the screen object so we can access it within the click handler
+
+    var screen = $("#screen");
+    var screenReset = "0";
+    var evaluation = "";
+    var evalCache = {};
+    updateScreen(screenReset);
+
+    $("#equals").on("click", function (event) {
+
+        console.log(" evaluation = " + evaluation + ", typeof = " + typeof evaluation);
+        console.log("eval('5+5'); = " + eval('5+5')); // this is returning undefined.... wtf!!!
+        evaluation = eval(evaluation);
+        console.log(" evaluation = " + evaluation);
+        updateScreen(evaluation);
+    });
+
+    $("#clearall").on("click", function (event) {
+
+        evaluation = "";
+        updateScreen(screenReset);
+
+    });
+
+
+
+    $("#clickables a").not("#equals, #clearall").on("click", function (event) {
+        var clicked = $(this).text();
+        console.log("clickables clicked");
+        // BUG - you can put as many operators in a row as you'd like. duh.
+
+        if (clicked === ".") {
+            var holder = evaluation.toString().split(/[\+\-\/\*]/);
+            var holderLength = holder.length - 1;
+            var lastitem = holder[holderLength];
+            lastitemFl = parseFloat(lastitem);
+
+            console.log(holder + " = holder\n " + lastitem + " = lastitem \n " + lastitemFl + " = float lastitem \n " + holderLength);
+
+            if (lastitemFl || lastitemFl === 0) { // this here to resolve a bug related to NaN populating lastitemFl when leading after an operator with a decimal - i think that this would be resolved by using a linear search to look for the . the reason i'm adding this if statement is because the first item in the nested if statement triggers on NaN. see code below
+
+                // if (number.indexOf('.') > 0)
+                //     {
+                //       hasDecimal = true;
+                //       console.log("hasDecimal = " + hasDecimal);
+                //     }
+
+                if (lastitemFl % 1 !== 0 || lastitem.charAt(lastitem.length - 1) === ".") {
+                    console.log(lastitem + " = lastitem");
+                    return;
+                }
+            }
+            else { evaluation += "0"; }
+        }
+
+        evaluation += clicked;
+        updateScreen(evaluation);
+    });
+
+
+    function updateScreen(arg) {
+        console.log(arg);
+        screen.text(arg);
+    }
+
+    function addToHistory(arg) {
+
+    }
+
+    function checkDecimal(arg) {
+
+    }
+
+    function throwError(arg) {
+        // body...
+    }
+
+});
+

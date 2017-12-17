@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="Content/demo.css" />
     <link rel="stylesheet" type="text/css" href="Content/form-wizard-teal.css" />
     <link rel="stylesheet" type="text/css" href="Content/switcher.css" />
+    <link rel="stylesheet" type="text/css" href="Content/calculator.css" />
 
     <!-- Fonts and Icons -->
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome.css" />
