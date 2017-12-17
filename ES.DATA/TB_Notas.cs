@@ -26,6 +26,6 @@ namespace ES.DATA
 
         public int? PROMEDIO { get; set; }
 
-        public DateTime? PROMOCION { get; set; }
+        public string PROMOCION { get; set; }
     }
 }

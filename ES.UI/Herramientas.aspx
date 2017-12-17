@@ -59,6 +59,18 @@
                         <p>Adm Profesores</p>
                     </a>
                 </li>
+                <li>
+                    <a href="AdmCursos.aspx">
+                        <i class="fa fa-sliders"></i>
+                        <p>Adm Cursos</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="VerNotas.aspx">
+                        <i class="fa fa-sliders"></i>
+                        <p>Notas</p>
+                    </a>
+                </li>
                 <li class="active">
                     <a href="Herramientas.aspx">
                         <i class="fa fa-wrench"></i>

@@ -19,6 +19,22 @@ namespace ES.BLL.Metodos
         public void CrearNotasEst(TB_Notas Notas)
         {
             _not.CrearNotasEst(Notas);
-        }        
+        }
+
+        public List<tempNotas> GetInfo()
+        {
+            return _not.GetInfo();
+        }
+
+        // GetInfo()
+        public List<tempNotas_> GetInfoById(string Id)
+        {
+            return _not.GetInfoById(Id);
+        }
+        
+        public void Actualizar(string Id, string IP, string IIP, string IIIP)
+        {
+            _not.Actualizar(Id, IP, IIP, IIIP);
+        }
     }
 }

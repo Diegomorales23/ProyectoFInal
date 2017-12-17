@@ -1,28 +1,25 @@
 ﻿<%@ Page Title="Adm Usuarios" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="UsersConfig.aspx.cs" Inherits="ES.UI.UsersConfig" %>
-
 <asp:Content ID="Menu" ContentPlaceHolderID="Menu" runat="server">
     <div class="sidebar" data-background-color="brown" data-active-color="danger">
         <div class="logo">
             <a href="Index.aspx" class="simple-text logo-normal">
-                <img class="img-responsive logo-normal custom_menu_logo" src="images/logo.png" />
+                <img class="img-responsive logo-normal" src="images/logo.png" style="height: 100px; margin-left: auto; margin-right: auto;" />
             </a>
-        </div>
+        </div><!-- end logo -->
 
         <div class="sidebar-wrapper">
             <div class="user">
                 <div class="info">
                     <div class="photo">
                         <img src="images/profile.png" />
-                    </div>
+                    </div><!-- end photo -->
 
                     <a data-toggle="collapse" href="#users" class="collapsed">
                         <span>Perfil
                             <b class="caret"></b>
                         </span>
                     </a>
-
                     <div class="clearfix"></div>
-
                     <div class="collapse in" id="users">
                         <ul class="nav">
                             <li>
@@ -34,14 +31,14 @@
                             <li class="active">
                                 <a href="UsersConfig.aspx">
                                     <span class="sidebar-mini fa fa-group custom_01"></span>
-                                    <span class="sidebar-normal">Adm Usuarios</span>
+                                    <span class="sidebar-normal">Adm. Usuarios</span>
                                 </a>
                             </li>
                         </ul>
-                    </div>
-                </div>
-            </div>
-
+                    </div><!-- end collapse -->
+                </div><!-- end info -->
+            </div><!-- end user -->
+    
             <ul class="nav">
                 <li>
                     <a href="Index.aspx">
@@ -52,24 +49,36 @@
                 <li>
                     <a href="AdmEstudiantes.aspx">
                         <i class="fa fa-sliders"></i>
-                        <p>ADM. ESTUDIANTES</p>
+                        <p>Adm Estudiantes</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="AdmProfesores.aspx">
                         <i class="fa fa-sliders"></i>
-                        <p>ADM. PROFESORES</p>
+                        <p>Adm Profesores</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="AdmCursos.aspx">
+                        <i class="fa fa-sliders"></i>
+                        <p>Adm Cursos</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="VerNotas.aspx">
+                        <i class="fa fa-sliders"></i>
+                        <p>Notas</p>
                     </a>
                 </li>
                 <li>
                     <a href="Herramientas.aspx">
                         <i class="fa fa-wrench"></i>
-                        <p>HERRAMIENTAS</p>
+                        <p>Herramientas</p>
                     </a>
                 </li>
             </ul>
-        </div>
-    </div>
+        </div><!-- end sidebar-wrapper -->
+    </div><!-- end sidebar --> 
 </asp:Content>
 
 <asp:Content ID="Head" ContentPlaceHolderID="Head" runat="server">
@@ -192,24 +201,6 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label>Foto de Perfil</label>
-                                <div class="input-group image-preview">
-                                    <input type="text" class="form-control image-preview-filename" disabled="disabled">
-                                    <span class="input-group-btn">
-                                        <button type="button" class="btn btn-default image-preview-clear" style="display: none;">
-                                            <span class="glyphicon glyphicon-remove"></span>Limpiar                   
-                                        </button>
-                                        <div class="btn btn-default image-preview-input">
-                                            <span class="glyphicon glyphicon-folder-open"></span>
-                                            <span class="image-preview-input-title">Buscar</span>
-                                            <input type="file" accept="image/png, image/jpeg, image/gif" id="C_ActualizarFoto" name="input-file-preview" />
-                                        </div>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
                         <div class="clearfix"></div>
                     </div>
                 </div>
@@ -236,8 +227,8 @@
                             <div class="col-md-12 text-center">
                                 <div class="form-group">
                                     <div class="author">
-                                        <img class="avatar border-white custom-image" id="D_Foto" />
-                                    </div>
+               <img src="http://allfreedesigns.com/wp-content/uploads/2014/08/tech-backgrounds-2.jpg" />
+                                     </div>
                                 </div>
                             </div>
                         </div>
@@ -306,7 +297,7 @@
                             <div class="col-md-12 text-center">
                                 <div class="form-group">
                                     <div class="author">
-                                        <img class="avatar border-white custom-image" id="E_Foto" />
+                                        <img src="http://allfreedesigns.com/wp-content/uploads/2014/08/tech-backgrounds-2.jpg" />            
                                     </div>
                                 </div>
                             </div>
@@ -356,24 +347,6 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label>Foto de Perfil</label>
-                                <div class="input-group image-preview">
-                                    <input type="text" class="form-control image-preview-filename" disabled="disabled">
-                                    <span class="input-group-btn">
-                                        <button type="button" class="btn btn-default image-preview-clear" style="display: none;">
-                                            <span class="fa fa-remove"></span>Limpiar                   
-                                        </button>
-                                        <div class="btn btn-default image-preview-input">
-                                            <span class="fa fa-folder-open"></span>
-                                            <span class="image-preview-input-title">Buscar</span>
-                                            <input type="file" accept="image/png, image/jpeg, image/gif" id="E_ActualizarFoto" name="input-file-preview" />
-                                        </div>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
                         <div class="clearfix"></div>
                     </div>
                 </div>

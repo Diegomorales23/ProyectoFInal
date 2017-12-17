@@ -52,7 +52,7 @@ namespace ES.UI
             res_.Add(_herra.Decrypt(res[0].CEDULA));
             res_.Add(_herra.Capitalize(_usu.ObtenerRol(res[0].ID_ROL)));
             res_.Add(_herra.Decrypt(res[0].TELEFONO));
-            res_.Add(_herra.Decrypt(res[0].FOTO));
+            //res_.Add(_herra.Decrypt(res[0].FOTO));
 
             return res_;
         }

@@ -16,6 +16,7 @@ namespace ES.UI
         static IHerramientas herra;
         static ISecciones sec;
         static INiveles niv;
+        static ICursos cur;
 
         public AdmEstudiantes()
         {
@@ -26,6 +27,7 @@ namespace ES.UI
             cal = new MNotas();
             sec = new MSecciones();
             niv = new MNiveles();
+            cur = new MCursos();
         }
 
         protected void Page_Load(object sender, EventArgs e) { }
@@ -136,8 +138,27 @@ namespace ES.UI
             };
 
             est.Insertar(Estudiante);
+
+            for (int i = 1; i <= cur.GetCant(); i++)
+            {
+                var NotasEst = new TB_Notas
+                {
+                    ID_ESTUDIANTE = herra.Encrypt(E_Cedula),
+                    ID_CURSO = i,
+                    PRIMER_PERIODO = 0,
+                    SEGUNDO_PERIODO = 0,
+                    TERCER_PERIODO = 0,
+                    CONVOCATORIA_I = 0,
+                    CONVOCATORIA_II = 0,
+                    CONVOCATORIA_III = 0,
+                    PROMEDIO = 0,
+                    PROMOCION = DateTime.UtcNow.Year.ToString()
+                };
+
+                cal.CrearNotasEst(NotasEst);
+            }
         }
-        
+
         [WebMethod]
         public static void Eliminar(string Id)
         {

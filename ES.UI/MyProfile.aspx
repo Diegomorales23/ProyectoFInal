@@ -6,23 +6,21 @@
             <a href="Index.aspx" class="simple-text logo-normal">
                 <img class="img-responsive logo-normal" src="images/logo.png" style="height: 100px; margin-left: auto; margin-right: auto;" />
             </a>
-        </div>
+        </div><!-- end logo -->
 
         <div class="sidebar-wrapper">
             <div class="user">
                 <div class="info">
                     <div class="photo">
                         <img src="images/profile.png" />
-                    </div>
+                    </div><!-- end photo -->
 
                     <a data-toggle="collapse" href="#users" class="collapsed">
                         <span>Perfil
                             <b class="caret"></b>
                         </span>
                     </a>
-
                     <div class="clearfix"></div>
-
                     <div class="collapse in" id="users">
                         <ul class="nav">
                             <li class="active">
@@ -38,27 +36,39 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
-                </div>
-            </div>
-
+                    </div><!-- end collapse -->
+                </div><!-- end info -->
+            </div><!-- end user -->
+    
             <ul class="nav">
                 <li>
                     <a href="Index.aspx">
                         <i class="fa fa-line-chart"></i>
                         <p>DASHBOARD</p>
                     </a>
-                </li>                
+                </li>
                 <li>
                     <a href="AdmEstudiantes.aspx">
                         <i class="fa fa-sliders"></i>
-                        <p>Adm. de Estudiantes</p>
+                        <p>Adm Estudiantes</p>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="AdmProfesores.aspx">
                         <i class="fa fa-sliders"></i>
-                        <p>Adm. de Profesores</p>
+                        <p>Adm Profesores</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="AdmCursos.aspx">
+                        <i class="fa fa-sliders"></i>
+                        <p>Adm Cursos</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="VerNotas.aspx">
+                        <i class="fa fa-sliders"></i>
+                        <p>Notas</p>
                     </a>
                 </li>
                 <li>
@@ -68,8 +78,8 @@
                     </a>
                 </li>
             </ul>
-        </div>
-    </div>
+        </div><!-- end sidebar-wrapper -->
+    </div><!-- end sidebar --> 
 </asp:Content>
 
 <asp:Content ID="Head" ContentPlaceHolderID="Head" runat="server">
@@ -116,7 +126,7 @@
             </div>
             <div class="card-content">
                 <div class="author">
-                    <img class="avatar border-white" src="<% Foto(); %>" />
+                    <img class="avatar border-white" src="https://sunriseprowebsites.com/backstage/app/views/client/lutfi-cloud/lutfi-file/images/avatar.png" />
                     <h4 class="card-title">
                         <asp:Label ID="username" runat="server"></asp:Label>
                         <br />
@@ -127,7 +137,7 @@
                 </div>
                 <p class="description text-center custom_19">
                     "
-                    <asp:Label ID="phrase" runat="server"></asp:Label>
+                    <asp:Label ID="phrase" runat="server">La felicidad no es algo hecho. Proviene de tus propias acciones</asp:Label>
                     "
                 </p>
             </div>
@@ -219,35 +229,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Frase</label>
-                            <textarea runat="server" id="E_Phrase" rows="5" class="form-control border-input" placeholder="Frase diaria..."></textarea>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <label>Foto de Perfil</label>
-                        <div class="input-group image-preview">
-                            <input type="text" class="form-control image-preview-filename" disabled="disabled">
-                            <span class="input-group-btn">
-                                <button type="button" class="btn btn-default image-preview-clear" style="display: none;">
-                                    <span class="glyphicon glyphicon-remove"></span>Limpiar
-                   
-                                </button>
-                                <div class="btn btn-default image-preview-input">
-                                    <span class="glyphicon glyphicon-folder-open"></span>
-                                    <span class="image-preview-input-title">Buscar</span>
-                                    <asp:FileUpload ID="E_Image" runat="server" />
-                                </div>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
+                
                 <div class="text-center custom_18">
                     <asp:Button CssClass="btn btn-info btn-fill btn-wd" ID="btn_UpdateProfile" OnClick="btn_UpdateProfile_Click" runat="server" Text="Actualizar" />
                 </div>

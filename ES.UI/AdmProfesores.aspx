@@ -66,6 +66,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="VerNotas.aspx">
+                        <i class="fa fa-sliders"></i>
+                        <p>Notas</p>
+                    </a>
+                </li>
+                <li>
                     <a href="Herramientas.aspx">
                         <i class="fa fa-wrench"></i>
                         <p>Herramientas</p>
@@ -75,6 +81,7 @@
         </div><!-- end sidebar-wrapper -->
     </div><!-- end sidebar --> 
 </asp:Content>
+
 
 <asp:Content ID="Head" ContentPlaceHolderID="Head" runat="server">
     <nav class="navbar navbar-default">

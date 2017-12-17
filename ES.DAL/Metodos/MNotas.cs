@@ -7,7 +7,7 @@ using ES.DAL.Interfaces;
 using ES.DATA;
 using ServiceStack.OrmLite;
 using System.Data;
-
+using System.Diagnostics;
 
 namespace ES.DAL.Metodos
 {
@@ -26,5 +26,30 @@ namespace ES.DAL.Metodos
         {
             _db.Insert(Notas);
         }
+
+        // GetInfo()
+        public List<tempNotas> GetInfo()
+        {
+            return _db.SqlList<tempNotas>("EXEC SP_GETNOTAS");
+        }
+
+        public List<tempNotas_> GetInfoById(string Id)
+        {
+            var SQL = string.Format("EXEC SP_GETNOTASBYEST '{0}'",Id);
+            return _db.SqlList<tempNotas_>(SQL);
+        }
+
+        public void Actualizar(string Id, string IP, string IIP, string IIIP)
+        {
+            Debug.WriteLine(Id);
+            Debug.WriteLine(IP);
+            Debug.WriteLine(IIP);
+            Debug.WriteLine(IIIP);
+            var SQL = string.Format("EXEC SP_GETUPDATENOTAS {0},{1},{2},{3}", Convert.ToInt32(Id), Convert.ToInt32(IP), Convert.ToInt32(IIP), Convert.ToInt32(IIIP));
+            _db.ExecuteSql(SQL);
+        }
+
+
+
     }
 }

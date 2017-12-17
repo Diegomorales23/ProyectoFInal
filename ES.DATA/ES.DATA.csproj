@@ -69,6 +69,8 @@
     <Compile Include="TB_Secciones.cs" />
     <Compile Include="TB_Usuarios.cs" />
     <Compile Include="tempCursos.cs" />
+    <Compile Include="tempNotas.cs" />
+    <Compile Include="tempNotas_.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

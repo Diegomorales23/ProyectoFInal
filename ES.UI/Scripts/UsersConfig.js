@@ -36,8 +36,7 @@ $().ready(function () {
                     document.getElementById("D_txtCedula").value = res[3];
                     document.getElementById("D_txtRol").value = res[4];
                     document.getElementById("D_txtTelefono").value = res[5];
-                    document.getElementById("D_Foto").src = res[6];
-
+                    
                     $("#VerUsuario").modal("show")
                 }
             });
@@ -65,8 +64,7 @@ $().ready(function () {
                         document.getElementById("E_ddlRole").selectedIndex = 2;
                     }
                     document.getElementById("E_txtTelefono").value = res[5];
-                    document.getElementById("E_Foto").src = res[6];
-
+                    
                     $("#EditarUsuario").modal("show")
                 }
             });

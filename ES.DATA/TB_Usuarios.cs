@@ -18,15 +18,13 @@
 
         public string APELLIDOS { get; set; }
 
-        public string TELEFONO { get; set; }
-
         public int ID_ROL { get; set; }
+
+        public string TELEFONO { get; set; }
 
         public string EMAIL { get; set; }
 
         public string CEDULA { get; set; }
-
-        public string FOTO { get; set; }
 
         public string FRASE { get; set; }
     }
